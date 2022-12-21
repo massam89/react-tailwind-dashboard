@@ -1,7 +1,16 @@
+import Survay from "./Survay"
+import Recent from "./Recent"
+import Top from "./Top"
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <main>
+      <Survay />
+      <div className="grid grid-cols-3 gap-4">
+        <Recent />
+        <Top />
+      </div>
+    </main>
   )
 }
 
