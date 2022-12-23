@@ -34,7 +34,7 @@ const Survay = () => {
                 <span className="font-bold text-3xl">17,886</span>
                 <div className="flex mt-2">
                     <svg className="w-4 h-4 bg-red-300 text-white rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-                    <span className="text-xs pl-1">Up from yesterday</span>
+                    <span className="text-xs pl-1">Down from yesterday</span>
                 </div>
             </div>
             <div className="bg-yellow-100 text-yellow-400 p-2 rounded-md ml-3">

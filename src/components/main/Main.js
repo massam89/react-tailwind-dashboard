@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <main>
       <Survay />
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 px-6 py-1">
         <Recent />
         <Top />
       </div>
