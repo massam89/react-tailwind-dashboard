@@ -2,7 +2,7 @@ import styles from "./Menu.module.css";
 
 const Menu = () => {
   return (
-    <nav className="bg-blues h-screen text-blue-100 relative hidden md:block lg:block transition-all">
+    <nav className="bg-blues h-screen fixed w-1/5 text-blue-100">
       <div className="flex items-center py-5 px-4">
         <svg
           className="w-9"
@@ -218,7 +218,7 @@ const Menu = () => {
           </a>
         </li>
       </ul>
-      <div className="flex px-4 py-2 absolute bottom-5">
+      <div className="flex px-4 py-2 bottom-5 absolute">
         <svg
           className="w-6 h-6"
           fill="none"

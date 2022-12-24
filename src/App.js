@@ -8,7 +8,7 @@ function App() {
       <div>
         <Menu />
       </div>
-      <div className="col-span-4 h-screen bg-gray-100">
+      <div className="col-span-4 bg-gray-100">
         <Header />
         <Main />
       </div>
