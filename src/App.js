@@ -4,7 +4,7 @@ import Main from "./components/main/Main";
 
 function App() {
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-5 h-screen gap-0">
+    <div className="grid md:grid-cols-3 lg:grid-cols-5 h-screen gap-0 overflow-x-hidden">
       <div>
         <Menu />
       </div>
