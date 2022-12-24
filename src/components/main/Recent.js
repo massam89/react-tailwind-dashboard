@@ -1,10 +1,10 @@
 const Recent = () => {
   return (
-    <div className="col-span-2 bg-white rounded-lg shadow-xl p-6">
+    <div className="col-span-2 bg-white rounded-lg shadow-xl p-6 mb-4">
       <h2 className="text-2xl font-bold mb-2">Recent Sales</h2>
-      <div class="flex flex-col">
+      <div class="flex flex-col overflow-x-auto">
         <div class="sm:-mx-6 lg:-mx-8">
-          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8 ">
   
               <table class="min-w-full">
                 <thead>

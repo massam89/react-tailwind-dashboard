@@ -1,6 +1,6 @@
 const Top = () => {
   return (
-    <div className="col-span-1 bg-white rounded-lg shadow-xl p-6">
+    <div className="col-span-1 bg-white rounded-lg shadow-xl p-6 mb-4">
       <h2 className="text-2xl font-bold mb-5">Top Selling Product</h2>
       <div>
         <div className="flex justify-between items-center mb-2">

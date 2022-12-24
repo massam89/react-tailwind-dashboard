@@ -2,7 +2,7 @@ import styles from "./Menu.module.css";
 
 const Menu = () => {
   return (
-    <nav className="bg-blues h-screen fixed w-1/5 text-blue-100">
+    <nav className="bg-blues h-screen fixed w-1/5 text-blue-100 hidden lg:block">
       <div className="flex items-center py-5 px-4">
         <svg
           className="w-9"
