@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const Header = () => {
+  const [showDropdown, setShowDropdown] = useState(false)
   return (
     <header className="flex justify-between px-6 py-3 bg-white">
       <div className="flex items-center">
@@ -13,10 +16,17 @@ const Header = () => {
         </button>
       </form>
 
-      <div className=" cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
+      <div onClick={() => setShowDropdown(!showDropdown)} className="relative cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
         <img className="rounded w-6 m-1" src="/images/profile-pic.jpg" alt="profile-pic" />
-        <span className="font-semibold mx-2 text-sm">Prem Shahi</span>
+        <span className="font-semibold mx-2 text-sm select-none">Prem Shahi</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+        <div className={`p-2 rounded-lg bg-gray-50 absolute right-0 top-9 shadow-2xl ${showDropdown ? 'block' : 'hidden'}`}>
+          <ul>
+            <li><a href="#" className="text-black font-semibold">Action</a></li>
+            <li><a href="#" className="text-black font-semibold">Another action</a></li>
+            <li><a href="#" className="text-black font-semibold">Something else here</a></li>
+          </ul>
+        </div>
       </div>
     </header>
   );
