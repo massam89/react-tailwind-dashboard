@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../store/ui/uiSlice";
+import { uiActions } from "../../store/ui/uiSlice"
+import userImage from '../../images/profile-pic.jpg'
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false)
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const Header = () => {
       </form>
 
       <div onClick={() => setShowDropdown((prev) => !prev)} className="relative cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
-        <img className="rounded w-6 m-1" src="/images/profile-pic.jpg" alt="profile-pic" />
+        <img className="rounded w-6 m-1" src={userImage} alt="profile-pic" />
         <span className="font-semibold mx-2 text-sm select-none">Prem Shahi</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
           <ul className={`rounded-lg bg-gray-100 border-2 absolute shadow-2xl transition-all w-full p-2 duration-500 top-10 ${showDropdown ? 'right-0' : '-right-96'}`}>
