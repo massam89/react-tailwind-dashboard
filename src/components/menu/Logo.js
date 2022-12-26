@@ -1,4 +1,4 @@
-import { logoIcon } from "../../assets/icon";
+import { logoIcon } from "../../assets/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice";
 

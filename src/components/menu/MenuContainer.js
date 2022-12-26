@@ -1,5 +1,5 @@
 import MenuItems from "./MenuItems";
-import { dashboardIcon, analyticsIcon, teamIcon, messageIcon, favoriteIcon, settingIcon } from "../../assets/icon";
+import { dashboardIcon, analyticsIcon, teamIcon, messageIcon, favoriteIcon, settingIcon } from "../../assets/icons";
 
 const MenuContainer = () => {
   const menuItems = [
