@@ -7,7 +7,7 @@ const Menu = () => {
   const showMenu = useSelector(state => state.ui.showMenu)
 
   return (
-    <nav className={`bg-blues h-screen fixed text-blue-100 lg:w-1/5 lg:block ${showMenu ? 'block' : 'hidden'}`}>
+    <nav className={`bg-blues h-screen fixed text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 lg:block ${showMenu ? 'block' : 'hidden'}`}>
       <Logo />
       <MenuContainer />
       <Logout />  

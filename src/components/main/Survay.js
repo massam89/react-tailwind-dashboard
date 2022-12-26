@@ -2,7 +2,7 @@
 const Survay = () => {
   return (
     <div className="flex flex-col md:flex-row items-center md:items-stretch  md:justify-between space-x-1 pt-4 px-6">
-        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
+        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-blue-300 border-2 border-transparent hover:border-2 hover:border-blue-300 box-content transition-color duration-200 md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">Total Order</span>
                 <span className="font-bold md:text-2xl lg:text-3xl">40,876</span>
@@ -15,7 +15,7 @@ const Survay = () => {
                 <svg className="w-5 lg:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>            
             </div>
         </div>
-        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
+        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-green-300 border-2 border-transparent hover:border-2 hover:border-green-300 box-content transition-color duration-200  md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">Total Sales</span>
                 <span className="font-bold md:text-2xl lg:text-3xl">21,876</span>
@@ -28,7 +28,7 @@ const Survay = () => {
                 <svg className="w-5 lg:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>            
             </div>
         </div>
-        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
+        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-yellow-300 border-2 border-transparent hover:border-2 hover:border-yellow-300 box-content transition-color duration-200  md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">Total Profit</span>
                 <span className="font-bold md:text-2xl lg:text-3xl">17,886</span>
@@ -41,7 +41,7 @@ const Survay = () => {
                 <svg className="w-5 lg:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>            
             </div>
         </div>
-        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
+        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-red-300 border-2 border-transparent hover:border-2 hover:border-red-300 box-content transition-color duration-200  md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">Total Return</span>
                 <span className="font-bold md:text-2xl lg:text-3xl">25,876</span>

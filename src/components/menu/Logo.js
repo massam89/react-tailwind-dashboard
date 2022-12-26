@@ -8,17 +8,18 @@ const Logo = () => {
 
   return (
     <>
-      {showMenu && (
+      
+      <div className="flex items-center justify-between lg:justify-start py-3 px-4">
+        {logoIcon("w-6 h-6")}
+        <h2 className="text-xl lg:text-2xl ml-4">CodingLab</h2>
+        {showMenu && (
         <span
           onClick={() => dispatch(uiActions.changeMenuDisplay())}
-          className="block text-right px-5 mt-2 text-white cursor-pointer"
+          className="block text-right text-white cursor-pointer lg:hidden"
         >
           X
         </span>
       )}
-      <div className="flex items-center py-3 px-4">
-        {logoIcon("w-6 h-6")}
-        <h2 className="text-md lg:text-2xl ml-4">CodingLab</h2>
       </div>
     </>
   );
