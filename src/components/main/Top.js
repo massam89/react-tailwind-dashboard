@@ -1,4 +1,4 @@
-import logo from '../../images/game.jpg'
+import logo from '../../assets/images/game.jpg'
 const Top = () => {
   return (
     <div className="col-span-1 bg-white rounded-lg shadow-xl p-6 mb-4">

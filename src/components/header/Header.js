@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
-import userImage from '../../images/profile-pic.jpg'
+import userImage from '../../assets/images/profile-pic.jpg'
+
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false)
   const dispatch = useDispatch()
