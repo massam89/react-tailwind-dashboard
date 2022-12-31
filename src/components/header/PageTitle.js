@@ -1,8 +1,9 @@
 import { menuIcon } from "../../assets/icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
 
 const PageTitle = () => {
+  const pageTitle = useSelector(state => state.ui.pageTitle)
     
   const dispatch = useDispatch()
   return (
@@ -10,7 +11,7 @@ const PageTitle = () => {
         <div onClick={() => dispatch(uiActions.changeMenuDisplay()) }>
           {menuIcon('w-7 lg:hidden cursor-pointer pt-1')}
         </div>
-        <h2 className="font-bold lg:text-2xl md:text-xl pl-2 tracking-wide text-gray-800">Dashboard</h2>
+        <h2 className="font-bold lg:text-2xl md:text-xl pl-2 tracking-wide text-gray-800">{pageTitle}</h2>
       </div>
   )
 }
