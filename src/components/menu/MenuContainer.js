@@ -7,11 +7,13 @@ const MenuContainer = () => {
       text: "Dashboard",
       icon: dashboardIcon,
       isSelect: true,
+      link: '/dashboard'
     },
     {
       text: "Analytics",
       icon: analyticsIcon,
       isSelect: false,
+      link: '/analytics'
     },
     {
       text: "Team",
