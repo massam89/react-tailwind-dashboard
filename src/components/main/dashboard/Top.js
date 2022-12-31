@@ -1,4 +1,4 @@
-import logo from '../../assets/images/game.jpg'
+import logo from '../../../assets/images/game.jpg'
 import TopItem from './TopItem';
 const Top = () => {
 
