@@ -3,15 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        showMenu: false,
-        pageTitle: 'Dashboard'
+        showMenu: false
     },
     reducers: {
         changeMenuDisplay(state){
             state.showMenu = !state.showMenu
-        },
-        changeTitlePage(state, action){
-            state.pageTitle = action.payload
         }
     }
 })

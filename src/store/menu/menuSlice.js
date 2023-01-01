@@ -3,9 +3,15 @@ import { menuItems } from "./menuItems";
 
 const menuSlice = createSlice({
     name: 'menu',
-    initialState: menuItems,
+    initialState: { menuItems: [...menuItems] },
     reducers: {
-
+        changeSpecificMenuItemStyle(state, action) {
+           const resetAllMenuSelectToFalse = state.menuItems.map(item => {
+            return {...item, isSelect: false}
+           })
+           resetAllMenuSelectToFalse[+action.payload - 1].isSelect = true
+           state.menuItems = resetAllMenuSelectToFalse
+        }
     }
 })
 
