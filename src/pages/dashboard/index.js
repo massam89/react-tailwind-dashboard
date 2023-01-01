@@ -1,6 +1,6 @@
-import Survay from "../components/main/dashboard/Survay"
-import Recent from "../components/main/dashboard/Recent"
-import Top from "../components/main/dashboard/Top"
+import Survay from "./Survay"
+import Recent from "./Recent"
+import Top from "./Top"
 
 const Dashboard = () => {
   return (

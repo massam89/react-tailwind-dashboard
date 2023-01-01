@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {menuItems} from "./menuItems";
+import { menuItems } from "./menuItems";
 
 const menuSlice = createSlice({
     name: 'menu',

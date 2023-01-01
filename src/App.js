@@ -1,9 +1,9 @@
-import Menu from "./components/menu/Menu";
-import Header from "./components/header/Header";
+import Menu from "./layout/menu";
+import Header from "./layout/header"
 import { Navigate, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Analytics from "./pages/Analytics";
-import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/dashboard";
+import Analytics from "./pages/analytics";
+import NotFound from "./pages/notFound";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div>
         <Menu />
       </div>
-      <div className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100">
+      <div className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100 h-screen">
         <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />

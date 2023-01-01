@@ -5,7 +5,7 @@ export const menuItems = [
     id: 1,
     text: "Dashboard",
     icon: dashboardIcon,
-    isSelect: false,
+    isSelect: true,
     link: "/dashboard",
   },
   {
