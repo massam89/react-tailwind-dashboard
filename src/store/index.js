@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import menuSlice from "./menu/menuSlice";
 import uiSlice from "./ui/uiSlice";
 
-console.log('first')
 const store = configureStore({
     reducer: {
-        ui: uiSlice
+        ui: uiSlice,
+        menu: menuSlice
     }
 })
 

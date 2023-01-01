@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
 
 const PageTitle = () => {
-  const pageTitle = useSelector(state => state.ui.pageTitle)
-    
+  const pageTitle = useSelector(state => state.ui.pageTitle)   
   const dispatch = useDispatch()
+  
   return (
     <div className="flex items-center">
         <div onClick={() => dispatch(uiActions.changeMenuDisplay()) }>
