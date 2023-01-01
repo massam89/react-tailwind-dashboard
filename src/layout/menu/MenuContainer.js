@@ -4,8 +4,6 @@ import MenuItems from "./MenuItems";
 const MenuContainer = () => {
   const menuItems = useSelector(state => state.menu.menuItems)
 
-  console.log(menuItems);
-
   return (
     <ul className="flex flex-col">
       {menuItems.map((item, index) => (
