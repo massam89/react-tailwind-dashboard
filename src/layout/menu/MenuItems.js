@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { menuActions } from "../../store/menu/menuSlice";
+import { useEffect } from "react";
+import { getUrlParameter } from "../../utils/getUrlParameter";
 
 const MenuItems = ({item}) => {
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(menuActions.changeMenuSelectionAtFirstTime(getUrlParameter()))
+    
+  }, [dispatch])
 
   const menuItemsSelectHandler = () => {
     dispatch(menuActions.changeSpecificMenuItemStyle(item.id))

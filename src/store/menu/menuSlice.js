@@ -11,6 +11,10 @@ const menuSlice = createSlice({
            })
            resetAllMenuSelectToFalse[+action.payload - 1].isSelect = true
            state.menuItems = resetAllMenuSelectToFalse
+        },
+        changeMenuSelectionAtFirstTime(state, action){
+            const specificIndex = state.menuItems.findIndex((item) => item.link === action.payload)
+            state.menuItems[specificIndex].isSelect = true
         }
     }
 })

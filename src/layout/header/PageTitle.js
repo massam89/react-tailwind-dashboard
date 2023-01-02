@@ -2,11 +2,13 @@ import { menuIcon } from "../../assets/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
 import { useMemo } from "react";
+import { getUrlParameter } from "../../utils/getUrlParameter";
 
 const PageTitle = () => {
+
   const dispatch = useDispatch()
   const menuItems = useSelector(state => state.menu.menuItems)  
-  const selectedItem = useMemo(() => menuItems.find(item => item.isSelect === true), [menuItems] ) 
+  const selectedItem = useMemo(() => menuItems.find(item => item.link === getUrlParameter()) , [menuItems] ) 
   
   return (
     <div className="flex items-center">
