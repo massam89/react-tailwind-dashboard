@@ -8,8 +8,7 @@ const MenuItems = ({item}) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(menuActions.changeMenuSelectionAtFirstTime(getUrlParameter()))
-    
+    dispatch(menuActions.changeMenuSelectionAtFirstTime(getUrlParameter())) 
   }, [dispatch])
 
   const menuItemsSelectHandler = () => {
