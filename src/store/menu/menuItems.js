@@ -1,4 +1,6 @@
 import { dashboardIcon, analyticsIcon, teamIcon, messageIcon, favoriteIcon, settingIcon } from "../../assets/icons";
+import Analytics from "../../pages/analytics";
+import Dashboard from "../../pages/dashboard";
 
 export const menuItems = [
   {
@@ -7,6 +9,7 @@ export const menuItems = [
     icon: dashboardIcon,
     isSelect: false,
     link: "/dashboard",
+    component: Dashboard
   },
   {
     id: 2,
@@ -14,6 +17,7 @@ export const menuItems = [
     icon: analyticsIcon,
     isSelect: false,
     link: "/analytics",
+    component: Analytics
   },
   {
     id: 3,

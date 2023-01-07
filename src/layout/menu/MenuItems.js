@@ -1,27 +1,18 @@
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { menuActions } from "../../store/menu/menuSlice";
-import { useEffect } from "react";
-import { getUrlParameter } from "../../utils/getUrlParameter";
+import { NavLink } from "react-router-dom";
 
 const MenuItems = ({item}) => {
-  const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(menuActions.changeMenuSelectionAtFirstTime(getUrlParameter())) 
-  }, [dispatch])
-
-  const menuItemsSelectHandler = () => {
-    dispatch(menuActions.changeSpecificMenuItemStyle(item.id))
-  }
+  const mutualStyle = 'flex transition-color duration-200 px-4 py-2 text-sm lg:text-lg'
+  const notActive = mutualStyle
+  const activeStyle = `bg-darkblue ${mutualStyle}`
 
   return (
-    <Link to={`/${item.link}`} onClick={menuItemsSelectHandler}>
-      <li className={`flex ${item.isSelect && 'bg-darkblue'} transition-color duration-200 px-4 py-2 text-sm lg:text-lg`}>
+    <li>
+      <NavLink to={item.link} className={({ isActive }) => isActive ? activeStyle : notActive}>
         {item.icon("w-6 h-6")}
-        <button className="ml-4">{item.text}</button>  
-      </li>
-    </Link>
+        <button className="ml-4">{item.text}</button>
+      </NavLink>
+    </li>
   );
 };
 
