@@ -8,7 +8,7 @@ export const menuItems = [
     text: "Dashboard",
     icon: dashboardIcon,
     isSelect: false,
-    link: "/dashboard",
+    path: "/dashboard",
     component: Dashboard
   },
   {
@@ -16,35 +16,35 @@ export const menuItems = [
     text: "Analytics",
     icon: analyticsIcon,
     isSelect: false,
-    link: "/analytics",
+    path: "/analytics",
     component: Analytics
   },
-  {
-    id: 3,
-    text: "Team",
-    icon: teamIcon,
-    isSelect: false,
-    link: "/team",
-  },
-  {
-    id: 4,
-    text: "Messages",
-    icon: messageIcon,
-    isSelect: false,
-    link: "/messages",
-  },
-  {
-    id: 5,
-    text: "Favorites",
-    icon: favoriteIcon,
-    isSelect: false,
-    link: "/favorites",
-  },
-  {
-    id: 6,
-    text: "Setting",
-    icon: settingIcon,
-    isSelect: false,
-    link: "/setting",
-  },
+  // {
+  //   id: 3,
+  //   text: "Team",
+  //   icon: teamIcon,
+  //   isSelect: false,
+  //   path: "/team",
+  // },
+  // {
+  //   id: 4,
+  //   text: "Messages",
+  //   icon: messageIcon,
+  //   isSelect: false,
+  //   path: "/messages",
+  // },
+  // {
+  //   id: 5,
+  //   text: "Favorites",
+  //   icon: favoriteIcon,
+  //   isSelect: false,
+  //   path: "/favorites",
+  // },
+  // {
+  //   id: 6,
+  //   text: "Setting",
+  //   icon: settingIcon,
+  //   isSelect: false,
+  //   path: "/setting",
+  // },
 ];

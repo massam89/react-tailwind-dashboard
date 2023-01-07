@@ -8,7 +8,7 @@ const MenuItems = ({item}) => {
 
   return (
     <li>
-      <NavLink to={item.link} className={({ isActive }) => isActive ? activeStyle : notActive}>
+      <NavLink to={item.path} className={({ isActive }) => isActive ? activeStyle : notActive}>
         {item.icon("w-6 h-6")}
         <button className="ml-4">{item.text}</button>
       </NavLink>
