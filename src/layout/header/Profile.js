@@ -1,14 +1,26 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { arrowDownIcon } from "../../assets/icons";
 import userImage from '../../assets/images/profile-pic.jpg'
 import Search from "./Search";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
 const Profile = () => {
     const [showDropdown, setShowDropdown] = useState(false)
+    const wrapperRef = useRef()
 
+    const showProfileMenuHandler = () => {
+        setShowDropdown((prev) => !prev)
+    }
+
+    const hideProfileMenu = () => {
+        setShowDropdown(false)
+    }
+
+    useOutsideAlerter(wrapperRef, hideProfileMenu)
+    
     return (
-        <div className="relative" >
-            <div onClick={() => setShowDropdown((prev) => !prev)} className=" cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
+        <div className="relative" ref={wrapperRef} >
+            <div onClick={ showProfileMenuHandler } className=" cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
                <img className="rounded w-6 m-1" src={userImage} alt="profile-pic" />
                 <span className="font-semibold mx-2 text-sm select-none">Prem Shahi</span>
                  {arrowDownIcon('w-4 h-4')} 

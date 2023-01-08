@@ -8,6 +8,9 @@ const uiSlice = createSlice({
     reducers: {
         changeMenuDisplay(state){
             state.showMenu = !state.showMenu
+        },
+        hideMenuDisplay(state){
+            state.showMenu = false
         }
     }
 })
