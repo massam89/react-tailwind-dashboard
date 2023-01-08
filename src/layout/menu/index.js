@@ -18,11 +18,19 @@ const Menu = () => {
   useOutsideAlerter(menuRef, hideMenu)
 
   return (
-    <nav ref={menuRef} className={`bg-blues h-screen fixed text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 lg:block ${showMenu ? 'block' : 'hidden'}`}>
+    <>
+    <nav className={`bg-blues h-screen fixed text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 hidden lg:block`}>
       <Logo />
       <MenuContainer />
       <Logout />  
     </nav>
+    <nav ref={menuRef} className={`bg-blues h-screen fixed transition-all duration-500  text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 ${showMenu ? 'left-0' : '-left-60 '} `}>
+      <Logo />
+      <MenuContainer />
+      <Logout />  
+    </nav>
+    </>
+    
   );
 };
 
