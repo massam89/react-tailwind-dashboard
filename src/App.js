@@ -8,11 +8,11 @@ function App() {
   const menuItems = useSelector((state) => state.menu.menuItems);
 
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-5 h-screen lg:overflow-hidden">
+    <div className="grid md:grid-cols-3 lg:grid-cols-5 overflow-x-hidden lg:overflow-hidden">
       <div>
         <Menu />
       </div>
-      <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100 h-full">
+      <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 h-screen bg-gray-100 ">
           <Header/>
           <Routes>
             <Route index element={<Navigate to="/dashboard" />} />
