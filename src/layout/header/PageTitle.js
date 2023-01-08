@@ -2,13 +2,17 @@ import { menuIcon } from "../../assets/icons";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import removeSlashAndCapitalizeFirstLetter from "../../utils/removeSlashAndCapitalizeFirstLetter";
 
 const PageTitle = () => {
-
-  const dispatch = useDispatch()
-  const location = useLocation()
-  const preparedPathname = (location.pathname.replace(/^\/+/i, '')).charAt(0).toUpperCase() + (location.pathname.replace(/^\/+/i, '')).slice(1);
   
+  const dispatch = useDispatch()
+  const {pathname} = useLocation()
+
+  const menuItems = useSelector(state => state.menu.menuItems)
+  const isMenuThere = menuItems.some((item) => item.path === pathname)
+  const preparedPathname = isMenuThere ? removeSlashAndCapitalizeFirstLetter(pathname) : 'NotFound Page'
   
   return (
     <div className="flex items-center">
