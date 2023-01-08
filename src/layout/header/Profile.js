@@ -15,10 +15,10 @@ const Profile = () => {
             </div>
             
             <ul className={`rounded-lg bg-gray-100 border-2 absolute shadow-2xl transition-all w-full p-2 duration-500 top-10 ${showDropdown ? 'right-0' : '-right-96'}`}>
-                <li className="border-b-1"><button className="text-black font-semibold">Profile</button></li>
-                <li className="border-b-1"><button className="text-black font-semibold">Setting</button></li>
-                <li className="border-b-1"><button className="text-black font-semibold">Payment List</button></li>
-                <li className="border-b-1"><Search className="relative sm:hidden" /></li>
+                <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Profile</button></li>
+                <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Setting</button></li>
+                <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Payment List</button></li>
+                <li><Search className="relative sm:hidden" /></li>
             </ul>
         </div>
     )

@@ -12,7 +12,7 @@ function App() {
       <div>
         <Menu />
       </div>
-      <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100 h-fit">
+      <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100 h-full">
           <Header/>
           <Routes>
             <Route index element={<Navigate to="/dashboard" />} />
