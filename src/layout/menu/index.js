@@ -19,7 +19,7 @@ const Menu = () => {
 
   return (
     <>
-    <nav className={`bg-blues h-screen fixed text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 hidden lg:block`}>
+    <nav className="bg-blues h-screen fixed text-blue-100 w-52 sm:w-56 z-10 lg:w-1/5 hidden lg:block">
       <Logo />
       <MenuContainer />
       <Logout />  
