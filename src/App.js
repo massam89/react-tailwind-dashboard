@@ -8,12 +8,11 @@ function App() {
   const menuItems = useSelector((state) => state.menu.menuItems);
 
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-5 overflow-x-hidden">
+    <div className="grid md:grid-cols-3 lg:grid-cols-5 h-screen lg:overflow-hidden">
       <div>
         <Menu />
       </div>
-      <div className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-white-100">
-        <main >
+      <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 bg-gray-100 h-fit">
           <Header/>
           <Routes>
             <Route index element={<Navigate to="/dashboard" />} />
@@ -22,8 +21,7 @@ function App() {
               return <Route key={item.id} path={item.path} element={<item.component />} />;
             })}
           </Routes>
-        </main>
-      </div>
+      </main>
     </div>
   );
 }

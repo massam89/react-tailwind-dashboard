@@ -14,6 +14,106 @@ const Top = () => {
       price: '$2000'
     },
     {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
+      text: 'Really great game 1',
+      logo: logo,
+      price: '$1000'
+    },
+    {
+      text: 'Really great game 2',
+      logo: logo,
+      price: '$2000'
+    },
+    {
       text: 'Really great game 3',
       logo: logo,
       price: '$3000'
@@ -33,10 +133,50 @@ const Top = () => {
       logo: logo,
       price: '$6000'
     },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
+    {
+      text: 'Really great game 6',
+      logo: logo,
+      price: '$6000'
+    },
   ]
 
   return (
-    <div className="col-span-1 bg-white rounded-lg shadow-xl p-6 mb-4">
+    <div className="col-span-1 bg-white rounded-lg shadow-xl p-6 mb-4 h-[calc(100vh-17%)] overflow-auto">
       <h2 className="text-2xl font-bold mb-5">Top Selling Product</h2>
       <div>
         {topList.map((item, index) => <TopItem key={index} item={item} />)}       

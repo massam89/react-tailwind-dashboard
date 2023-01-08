@@ -1,7 +1,7 @@
 
 const Survay = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-stretch  md:justify-between space-x-1 pt-4 px-6">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch md:justify-between space-x-1 pt-3 px-6">
         <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-blue-300 border-2 border-transparent hover:border-2 hover:border-blue-300 box-content transition-color duration-200 md:p-3 w-full lg:px-6 lg:py-4 rounded-lg shadow-xl">
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">Total Order</span>

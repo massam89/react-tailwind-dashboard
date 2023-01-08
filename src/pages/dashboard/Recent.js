@@ -43,11 +43,71 @@ const Recent = () => {
       customer: 'John Doe',
       sales: 'Delivered',
       total: '$1425'
-    }
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
+    {
+      date: '02 Jan 2022',
+      customer: 'John Doe',
+      sales: 'Delivered',
+      total: '$1425'
+    },
   ]
 
   return (
-    <div className="col-span-2 bg-white rounded-lg shadow-xl p-6 mb-4">
+    <div className="col-span-2 bg-white rounded-lg shadow-xl p-6 mb-4 h-[calc(100vh-17%)] overflow-auto">
       <h2 className="text-2xl font-bold mb-2">Recent Sales</h2>
       <div className="flex flex-col overflow-x-auto">
         <div className="sm:-mx-6 lg:-mx-8">
