@@ -62,11 +62,7 @@ const Recent = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {recentSales.map((item, index) => {
-                    return (
-                      <RecentItem key={index} item={item} />
-                    )
-                  })}     
+                  {recentSales.map((item, index) => <RecentItem key={index} item={item} />)}     
                 </tbody>
               </table>
           </div>
