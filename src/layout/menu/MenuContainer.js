@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
 import MenuItems from "./MenuItems";
+import { menuItems } from "../../data/menuItems";
 
 const MenuContainer = () => {
-  const menuItems = useSelector(state => state.menu.menuItems)
 
   return (
     <ul className="flex flex-col">

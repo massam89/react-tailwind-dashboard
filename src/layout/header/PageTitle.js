@@ -2,15 +2,14 @@ import { menuIcon } from "../../assets/icons";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui/uiSlice"
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import removeSlashAndCapitalizeFirstLetter from "../../utils/removeSlashAndCapitalizeFirstLetter";
+import {menuItems} from "../../data/menuItems";
 
 const PageTitle = () => {
   
   const dispatch = useDispatch()
   const {pathname} = useLocation()
 
-  const menuItems = useSelector(state => state.menu.menuItems)
   const isMenuThere = menuItems.some((item) => item.path === pathname)
   const preparedPathname = isMenuThere ? removeSlashAndCapitalizeFirstLetter(pathname) : 'NotFound Page'
   
