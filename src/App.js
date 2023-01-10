@@ -1,12 +1,14 @@
 import Menu from "./layout/menu";
 import Header from "./layout/header";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import NotFound from "./pages/notFound";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
 import { dashboardIcon, analyticsIcon } from "./assets/icons/index";
 import Analytics from "./pages/analytics";
 import Dashboard from "./pages/dashboard";
+import { useCallback, useEffect } from "react";
+import { authActions } from "./store/auth/authSlice";
 
 const menuItems = [
   {
@@ -56,6 +58,21 @@ const menuItems = [
 ];
 
 function App() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {pathname} = useLocation()
+
+  const localStorageCheck = useCallback(() => {
+    if(localStorage.getItem('auth')){
+      dispatch(authActions.login())
+      navigate(pathname)
+    }
+  }, [dispatch, navigate, pathname])
+
+  useEffect(() => {
+    localStorageCheck()
+  }, [localStorageCheck])
+
   const isAuth = useSelector(state => state.auth.isAuth)
 
   if(isAuth) {
@@ -71,7 +88,7 @@ function App() {
             {menuItems.map((item) => {
               return <Route key={item.id} path={item.path} element={<item.component />} />;
             })}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound/>} />
           </Routes>
       </main>
     </div>
