@@ -7,7 +7,6 @@ import LoginRegister from "./pages/login-register";
 
 function App() {
   const menuItems = useSelector((state) => state.menu.menuItems);
-
   const isAuth = useSelector(state => state.auth.isAuth)
 
   if(isAuth) {
@@ -19,22 +18,24 @@ function App() {
       <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 h-screen bg-gray-100 ">
           <Header/>
           <Routes>
-            <Route index element={<Navigate to="/login-register" />} />
-            <Route path="/login-register" element={<LoginRegister />} />
-            <Route path="*" element={<NotFound />} />
+          <Route index element={<Navigate to="/dashboard" />} />
             {menuItems.map((item) => {
               return <Route key={item.id} path={item.path} element={<item.component />} />;
             })}
+            <Route path="*" element={<NotFound />} />
           </Routes>
       </main>
     </div>
   );
   } else {
     return (
-      <div>hello</div>
+      <Routes>
+        <Route index element={<Navigate to="/login-register" />} />
+        <Route path="/login-register" element={<LoginRegister />} />
+        <Route path="*" element={<Navigate to="/login-register" />} />
+      </Routes>
     )
   }
- 
 }
 
 export default App;
