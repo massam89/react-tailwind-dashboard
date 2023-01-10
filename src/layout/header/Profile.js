@@ -3,10 +3,13 @@ import { arrowDownIcon } from "../../assets/icons";
 import userImage from '../../assets/images/profile-pic.jpg'
 import Search from "./Search";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth/authSlice";
 
 const Profile = () => {
     const [showDropdown, setShowDropdown] = useState(false)
     const wrapperRef = useRef()
+    const disptach = useDispatch()
 
     const showProfileMenuHandler = () => {
         setShowDropdown((prev) => !prev)
@@ -17,7 +20,11 @@ const Profile = () => {
     }
 
     useOutsideAlerter(wrapperRef, hideProfileMenu)
-    
+
+    const logoutHandler = () => {
+        disptach(authActions.logout())
+    }
+
     return (
         <div className="relative" ref={wrapperRef} >
             <div onClick={ showProfileMenuHandler } className=" cursor-pointer pr-4 flex items-center border-gray-300 border-2 bg-gray-200 rounded-md">
@@ -30,6 +37,7 @@ const Profile = () => {
                 <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Profile</button></li>
                 <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Setting</button></li>
                 <li className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Payment List</button></li>
+                <li onClick={logoutHandler} className=" hover:border-b-2 hover:border-blues"><button className="text-black font-semibold">Log out</button></li>
                 <li><Search className="relative sm:hidden" /></li>
             </ul>
         </div>
