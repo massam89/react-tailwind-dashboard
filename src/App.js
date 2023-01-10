@@ -4,9 +4,58 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/notFound";
 import { useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
+import { dashboardIcon, analyticsIcon } from "./assets/icons/index";
+import Analytics from "./pages/analytics";
+import Dashboard from "./pages/dashboard";
+
+const menuItems = [
+  {
+    id: 1,
+    text: "Dashboard",
+    icon: dashboardIcon,
+    isSelect: false,
+    path: "/dashboard",
+    component: Dashboard
+  },
+  {
+    id: 2,
+    text: "Analytics",
+    icon: analyticsIcon,
+    isSelect: false,
+    path: "/analytics",
+    component: Analytics
+  },
+  // {
+  //   id: 3,
+  //   text: "Team",
+  //   icon: teamIcon,
+  //   isSelect: false,
+  //   path: "/team",
+  // },
+  // {
+  //   id: 4,
+  //   text: "Messages",
+  //   icon: messageIcon,
+  //   isSelect: false,
+  //   path: "/messages",
+  // },
+  // {
+  //   id: 5,
+  //   text: "Favorites",
+  //   icon: favoriteIcon,
+  //   isSelect: false,
+  //   path: "/favorites",
+  // },
+  // {
+  //   id: 6,
+  //   text: "Setting",
+  //   icon: settingIcon,
+  //   isSelect: false,
+  //   path: "/setting",
+  // },
+];
 
 function App() {
-  const menuItems = useSelector((state) => state.menu.menuItems);
   const isAuth = useSelector(state => state.auth.isAuth)
 
   if(isAuth) {
