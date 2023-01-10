@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/react-tailwind-dashboard/static/css/main.03235a21.css",
-    "main.js": "/react-tailwind-dashboard/static/js/main.d48baee9.js",
+    "main.js": "/react-tailwind-dashboard/static/js/main.c3121e9c.js",
     "index.html": "/react-tailwind-dashboard/index.html"
   },
   "entrypoints": [
     "static/css/main.03235a21.css",
-    "static/js/main.d48baee9.js"
+    "static/js/main.c3121e9c.js"
   ]
 }
