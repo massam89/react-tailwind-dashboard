@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         blues: 'rgb(10,38,88)',
         darkblue: 'rgb(7,29,70)'       
+      },
+      screens:{
+        xs: '390px',
       }
     },
   },
