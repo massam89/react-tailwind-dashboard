@@ -1,6 +1,7 @@
-import { analyticsIcon, dashboardIcon } from "../assets/icons";
+import { analyticsIcon, dashboardIcon, teamIcon, messageIcon, favoriteIcon, settingIcon } from "../assets/icons";
 import Analytics from "../pages/analytics";
 import Dashboard from "../pages/dashboard";
+import Temp from "../pages/temp"
 
 export const menuItems = [
     {
@@ -19,33 +20,37 @@ export const menuItems = [
       path: "/analytics",
       component: Analytics
     },
-    // {
-    //   id: 3,
-    //   text: "Team",
-    //   icon: teamIcon,
-    //   isSelect: false,
-    //   path: "/team",
-    // },
-    // {
-    //   id: 4,
-    //   text: "Messages",
-    //   icon: messageIcon,
-    //   isSelect: false,
-    //   path: "/messages",
-    // },
-    // {
-    //   id: 5,
-    //   text: "Favorites",
-    //   icon: favoriteIcon,
-    //   isSelect: false,
-    //   path: "/favorites",
-    // },
-    // {
-    //   id: 6,
-    //   text: "Setting",
-    //   icon: settingIcon,
-    //   isSelect: false,
-    //   path: "/setting",
-    // },
+    {
+      id: 3,
+      text: "Team",
+      icon: teamIcon,
+      isSelect: false,
+      path: "/team",
+      component: Temp
+    },
+    {
+      id: 4,
+      text: "Messages",
+      icon: messageIcon,
+      isSelect: false,
+      path: "/messages",
+      component: Temp
+    },
+    {
+      id: 5,
+      text: "Favorites",
+      icon: favoriteIcon,
+      isSelect: false,
+      path: "/favorites",
+      component: Temp
+    },
+    {
+      id: 6,
+      text: "Setting",
+      icon: settingIcon,
+      isSelect: false,
+      path: "/setting",
+      component: Temp
+    },
   ];
   

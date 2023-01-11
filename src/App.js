@@ -4,58 +4,9 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-
 import NotFound from "./pages/notFound";
 import { useDispatch, useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
-import { dashboardIcon, analyticsIcon } from "./assets/icons/index";
-import Analytics from "./pages/analytics";
-import Dashboard from "./pages/dashboard";
 import { useCallback, useEffect } from "react";
 import { authActions } from "./store/auth/authSlice";
-
-const menuItems = [
-  {
-    id: 1,
-    text: "Dashboard",
-    icon: dashboardIcon,
-    isSelect: false,
-    path: "/dashboard",
-    component: Dashboard
-  },
-  {
-    id: 2,
-    text: "Analytics",
-    icon: analyticsIcon,
-    isSelect: false,
-    path: "/analytics",
-    component: Analytics
-  },
-  // {
-  //   id: 3,
-  //   text: "Team",
-  //   icon: teamIcon,
-  //   isSelect: false,
-  //   path: "/team",
-  // },
-  // {
-  //   id: 4,
-  //   text: "Messages",
-  //   icon: messageIcon,
-  //   isSelect: false,
-  //   path: "/messages",
-  // },
-  // {
-  //   id: 5,
-  //   text: "Favorites",
-  //   icon: favoriteIcon,
-  //   isSelect: false,
-  //   path: "/favorites",
-  // },
-  // {
-  //   id: 6,
-  //   text: "Setting",
-  //   icon: settingIcon,
-  //   isSelect: false,
-  //   path: "/setting",
-  // },
-];
+import { menuItems } from "./data/menuItems";
 
 function App() {
   const dispatch = useDispatch()
