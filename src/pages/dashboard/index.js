@@ -1,8 +1,14 @@
 import Survay from "./Survay"
 import Recent from "./Recent"
 import Top from "./Top"
+import { useEffect } from "react"
 
 const Dashboard = () => {
+
+  useEffect(() => {
+    document.title = "Dashboard App | Dashboard"
+  }, [])
+
   return (
     <>
       <Survay />

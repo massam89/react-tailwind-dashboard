@@ -9,6 +9,7 @@ const Login = () => {
     disptach(authActions.login())
     navigate('/')
   }
+  
   return (
     <div onClick={loginHandler} className="w-full h-full bg-red-200">Login page </div>
   )
