@@ -4,7 +4,7 @@ const uiSlice = createSlice({
     name: 'ui',
     initialState: {
         showMenu: false,
-        loginMode: true
+        loginMode: false
     },
     reducers: {
         changeMenuDisplay(state){state.showMenu = !state.showMenu},
