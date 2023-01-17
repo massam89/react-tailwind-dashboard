@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename="/react-tailwind-dashboard">
+  <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
     <Provider store={store}>
       <React.StrictMode>
         <App />
