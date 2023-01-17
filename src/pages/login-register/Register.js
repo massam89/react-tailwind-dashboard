@@ -20,16 +20,12 @@ const Register = () => {
             <FormInput type='text' placeholder='Username' icon={userNameIcon} iconClassName='w-6 h-6' />
             <FormInput type='password' placeholder='Password' icon={passwordIcon} iconClassName='w-6 h-6' />
           </div>
-
           <div className="flex justify-between items-center mt-14">
-            <span onClick={linkToLoginPageHandler} className="text-gray-400 cursor-pointer">{arrowLeftIcon('h-4 h-4 inline mr-1')}Link to Login page</span>
+            <span onClick={linkToLoginPageHandler} className="text-gray-400 cursor-pointer">{arrowLeftIcon('h-4 h-4 inline mr-1')}Link To Login Page</span>
             <button type="submit" className="bg-teal-300 rounded-full px-12 py-2 text-white text hover:shadow-md">Register</button>
           </div>
         </form>
-        
-        
-      </div>
-      
+      </div>  
     </div>
   )
 }
