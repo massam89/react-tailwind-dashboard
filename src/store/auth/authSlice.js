@@ -4,7 +4,7 @@ const checkLoginFromLocalStorage = () => localStorage.getItem('auth') ?? false
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: {isAuth: checkLoginFromLocalStorage},
+    initialState: {isAuth: checkLoginFromLocalStorage()},
     reducers: {
         login(state){
             state.isAuth = true
