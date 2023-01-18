@@ -10,17 +10,12 @@ const Register = () => {
   const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
-
-  const submitHandler = (e) => {
-    e.preventDefault()
-    disptach(uiActions.changeLoginMode())
-  }
   
   return (
     <div className={`h-full w-1/2 absolute ${isLoginMode ? 'left-0 opacity-0' : 'left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center bg-white`}>
       <div className="w-3/4">
         <h2 className="text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
-        <form onSubmit={submitHandler}>
+        <form>
           <div>
             <FormInput type='text' placeholder='Fullname' name='fullname' />
             <FormInput type='text' placeholder='Username' name='username'  />
