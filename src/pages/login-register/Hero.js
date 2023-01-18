@@ -23,7 +23,6 @@ const Hero = () => {
 
         <img className="absolute top-[30%] -z-10 w-72 opacity-5" src={heroImage} alt="hero" />
       </div>
-    
   )
 }
 

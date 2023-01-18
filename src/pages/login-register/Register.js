@@ -1,5 +1,5 @@
 import FormInput from "../../components/formInput"
-import { arrowLeftIcon, passwordIcon, userIcon, userNameIcon } from "../../assets/icons"
+import { arrowLeftIcon} from "../../assets/icons"
 import { useDispatch } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
 
@@ -14,9 +14,9 @@ const Register = () => {
         <h2 className="text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
         <form>
           <div>
-            <FormInput type='text' placeholder='Fullname' icon={userIcon} />
-            <FormInput type='text' placeholder='Username' icon={userNameIcon}  />
-            <FormInput type='password' name='password' placeholder='Password' icon={passwordIcon} />          
+            <FormInput type='text' placeholder='Fullname' name='fullname' />
+            <FormInput type='text' placeholder='Username' name='username'  />
+            <FormInput type='password' placeholder='Password' name='password' />          
           </div>
           <div className="flex justify-between items-center mt-14">
             <span onClick={linkToLoginPageHandler} className="text-gray-400 cursor-pointer">{arrowLeftIcon('h-4 h-4 inline mr-1')}Link To Login Page</span>

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { authActions } from "../../store/auth/authSlice"
-import { arrowRightIcon, passwordIcon, userNameIcon } from "../../assets/icons"
+import { arrowRightIcon } from "../../assets/icons"
 import FormInput from "../../components/formInput"
 import { uiActions } from "../../store/ui/uiSlice"
 
@@ -17,8 +17,8 @@ const Login = () => {
         <h2 className="text-gray-500 font-bold text-3xl mb-12">Login To Dashboard</h2>
         <form onSubmit={sumbitHandler}>
           <div>
-            <FormInput type='text' name='username' placeholder='Username' icon={userNameIcon} />
-            <FormInput type='password' name='password' placeholder='Password' icon={passwordIcon} />
+            <FormInput type='text' name='username' placeholder='Username'/>
+            <FormInput type='password' name='password' placeholder='Password' />
           </div>
           <div className="flex justify-between items-center mt-14">
             <button type="submit" className="bg-teal-300 rounded-full px-12 py-2 text-white text hover:shadow-md">Login</button>
