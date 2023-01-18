@@ -1,18 +1,26 @@
 import FormInput from "../../components/formInput"
 import { arrowLeftIcon} from "../../assets/icons"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
+
 
 const Register = () => {
   const disptach = useDispatch()
 
   const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
+
+  const isLoginMode = useSelector(state => state.ui.loginMode)
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    disptach(uiActions.changeLoginMode())
+  }
   
   return (
-    <div className="h-full w-full flex justify-center items-center bg-white">
+    <div className={`h-full w-1/2 absolute ${isLoginMode ? 'left-0 opacity-0' : 'left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center bg-white`}>
       <div className="w-3/4">
         <h2 className="text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
-        <form>
+        <form onSubmit={submitHandler}>
           <div>
             <FormInput type='text' placeholder='Fullname' name='fullname' />
             <FormInput type='text' placeholder='Username' name='username'  />

@@ -1,10 +1,13 @@
+import { useSelector } from "react-redux"
 import { starIcon } from "../../assets/icons"
 import heroImage from "../../assets/images/hero-pattern.png"
 
 const Hero = () => {
 
+  const isLogin = useSelector(state => state.ui.loginMode)
+
   return (
-      <div className="relative flex flex-col justify-center items-center -z-40 w-full h-full text-blue-100 bg-gradient-to-tr from-darkblue to-blue-500">
+      <div className={`absolute z-30 ${isLogin ? 'left-[50%]' : 'left-0'} transition-all duration-1000 flex flex-col justify-center items-center -z-40 w-1/2 h-full text-blue-100 bg-gradient-to-tr from-darkblue to-blue-500`}>
         <header className="mb-[5vw]">
           <span className="font-bold text-[1.5vw] tracking-widest">WELCOME TO</span>
         </header>
