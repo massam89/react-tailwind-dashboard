@@ -5,9 +5,7 @@ import Login from "./Login"
 import Register from "./Register"
 
 const LoginRegister = () => {
-    useEffect(() => {
-        document.title = 'Dashboard App | Login-register'
-    }, [])
+    useEffect(() => {document.title = 'Dashboard App | Login-register'}, [])
 
     const isLoginPage = useSelector(state => state.ui.loginMode)
 

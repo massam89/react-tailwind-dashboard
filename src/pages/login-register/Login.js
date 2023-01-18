@@ -9,17 +9,9 @@ const Login = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false)
   const disptach = useDispatch()
 
-  const sumbitHandler = () => {
-    disptach(authActions.login())
-  }
-
-  const linkToRegisterPageHandler = () => {
-    disptach(uiActions.changeLoginMode())
-  }
-
-  const showPasswordHandler = () => {
-    setIsPasswordShown(prevState => !prevState)
-  }
+  const sumbitHandler = () => disptach(authActions.login())
+  const linkToRegisterPageHandler = () => disptach(uiActions.changeLoginMode())
+  const showPasswordHandler = () => setIsPasswordShown(prevState => !prevState)
   
   return (
     <div className="h-full w-full flex justify-center items-center bg-white">

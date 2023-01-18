@@ -1,6 +1,6 @@
 import { eyeIcon, openEyeIcon } from "../../assets/icons";
 
-const FormInput = ({iconClassName,name, type, placeholder, icon, showPasswordHandler}) => {
+const FormInput = ({iconClassName, name, type, placeholder, icon, showPasswordHandler}) => {
 
   return (
     <div className="relative mb-4 w-full">
