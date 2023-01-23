@@ -21,9 +21,9 @@ const Register = () => {
             <FormInput type='text' placeholder='Username' name='username'  />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
-          <div className="flex justify-between items-center mt-14">
-            <span onClick={linkToLoginPageHandler} className="text-gray-400 cursor-pointer">{arrowLeftIcon('h-4 h-4 inline mr-1')}Link To Login Page</span>
-            <button type="submit" className="bg-teal-300 rounded-full px-12 py-2 text-white text hover:shadow-md">Register</button>
+          <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">
+            <span onClick={linkToLoginPageHandler} className="text-gray-400 mt-3 md:mt-0 text-sm lg:text-lg cursor-pointer order-2 md:order-1">{arrowLeftIcon('h-4 h-4 inline mr-1')}Switch To Login Page</span>
+            <button type="submit" className="bg-teal-300 rounded-full px-8 py-1 lg:px-12 lg:py-2 text-white text hover:shadow-md order-1 md:order-2">Register</button>
           </div>
         </form>
       </div>  
