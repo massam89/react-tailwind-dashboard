@@ -1,5 +1,3 @@
-const removeSlashAndCapitalizeFirstLetter = (string) => {
+export default function removeSlashAndCapitalizeFirstLetter(string) {
     return (string.replace(/^\/+/i, '')).charAt(0).toUpperCase() + (string.replace(/^\/+/i, '')).slice(1);
 }
-
-export default removeSlashAndCapitalizeFirstLetter

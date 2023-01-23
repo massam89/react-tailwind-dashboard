@@ -31,7 +31,6 @@ const FormInput = (props) => {
     return inputIcon
   }
   
-
   return (
     <div className="relative mb-4 w-full">
       <span className="absolute top-0 text-gray-400">{getIconFromNameAttribute(props)}</span>
