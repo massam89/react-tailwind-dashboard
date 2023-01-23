@@ -7,7 +7,7 @@ const Hero = () => {
   const isLogin = useSelector(state => state.ui.loginMode)
 
   return (
-      <div className={`absolute z-30 ${isLogin ? 'left-[50%]' : 'left-0'} transition-all duration-1000 flex flex-col justify-center items-center -z-40 w-1/2 h-full text-blue-100 bg-gradient-to-tr from-darkblue to-blue-500`}>
+      <div className={`hidden absolute z-30 ${isLogin ? 'left-[50%]' : 'left-0'} transition-all duration-1000 xs:flex flex-col justify-center items-center -z-40 w-1/2 h-full text-blue-100 bg-gradient-to-tr from-darkblue to-blue-500`}>
         <header className="mb-[5vw]">
           <span className="font-bold text-[1.5vw] tracking-widest">WELCOME TO</span>
         </header>

@@ -12,7 +12,7 @@ const Register = () => {
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   return (
-    <div className={`h-full w-1/2 absolute ${isLoginMode ? 'left-0 opacity-0' : 'left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center bg-white`}>
+    <div className={`h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center bg-white`}>
       <div className="w-3/4">
         <h2 className="text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
         <form>

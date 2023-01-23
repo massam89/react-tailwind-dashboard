@@ -19,7 +19,7 @@ const Login = () => {
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   return (
-    <div className={`h-full w-1/2 absolute ${isLoginMode ? 'z-10 opacity-100' : '-z-10 opacity-0'} transition-all duration-1000 flex justify-center items-center bg-white`}>
+    <div className={`h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'z-10 opacity-100' : '-z-10 opacity-0'} transition-all duration-1000 flex justify-center items-center bg-white`}>
       <div className="w-3/4">
         <h2 className="text-gray-500 font-bold text-2xl  md:text-3xl mb-12">Login To Dashboard</h2>
         <form onSubmit={sumbitHandler}>
