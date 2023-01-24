@@ -8,7 +8,7 @@ module.exports = {
         darkblue: 'rgb(7,29,70)'       
       },
       screens:{
-        xs: '390px',
+        xs: '450px',
       }
     },
   },
