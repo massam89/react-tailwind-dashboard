@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
 import { menuItems } from "./data/menuItems";
 import { ToastContainer } from "react-toastify";
+import Loader from "./components/loader";
 
 function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
+  const isLoader = useSelector(state => state.ui.loader)
 
   const renderRouters = () => {
     if(isAuth) {
@@ -41,6 +43,7 @@ function App() {
 
   return (
     <>
+      {isLoader && <Loader />}
       <ToastContainer
         position="bottom-left"
         autoClose={3000}

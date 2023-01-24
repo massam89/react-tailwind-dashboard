@@ -17,7 +17,6 @@ const Register = () => {
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
         <form>
           <div>
-            <FormInput type='text' placeholder='Fullname' name='fullname' />
             <FormInput type='text' placeholder='Username' name='username'  />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
