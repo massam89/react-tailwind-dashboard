@@ -2,22 +2,43 @@ import FormInput from "../../components/formInput"
 import { arrowLeftIcon} from "../../assets/icons"
 import { useDispatch, useSelector } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
-
+import { checkUniqueUser } from "./_srv"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 const Register = () => {
+  const [username, setUsername] = useState('')
   const disptach = useDispatch()
 
   const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      checkUniqueUser({userName : username})
+      .then(res => {
+        if(res.data === true){
+          toast.error('username is unique!')
+        }
+      })
+      .catch(err => console.log(err))
+    }, 500);
+    return () => clearTimeout(timer)
+  }, [username])
+
+  const registerHandler = (e) => {
+    e.preventDefault() 
+    
+  }
   
   return (
     <div className={`bg-[#13346e] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center`}>
       <div className="w-3/4">
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
-        <form>
+        <form onSubmit={registerHandler}>
           <div>
-            <FormInput type='text' placeholder='Username' name='username'  />
+            <FormInput type='text' placeholder='Username' name='username' onChange={(e) => setUsername(e.target.value)} />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">

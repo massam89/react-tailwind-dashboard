@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { eyeIcon, openEyeIcon, passwordIcon, userNameIcon, userIcon } from "../../assets/icons";
 
-const FormInput = (props) => {
+const FormInput = React.forwardRef((props, ref) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false)
 
   const showPasswordHandler = () => setIsPasswordShown(prevState => !prevState)
@@ -38,6 +38,6 @@ const FormInput = (props) => {
       {props.type === 'password' ? <input className="pl-8 pb-5 border-b-2 border-gray-200 outline-none mx-auto block text-gray-400 w-full bg-[#13346e] xs:bg-white" {...makenewprops(props)}  /> : <input className="pl-8 pb-5 border-b-2 border-gray-200 outline-none mx-auto block text-gray-400 w-full bg-[#13346e] xs:bg-white" {...makenewprops(props)} /> }
     </div>
   );
-};
+});
 
 export default FormInput;
