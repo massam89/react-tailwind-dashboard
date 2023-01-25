@@ -1,5 +1,5 @@
 import FormInput from "../../components/formInput"
-import { arrowLeftIcon, stopIcon, tickIcon} from "../../assets/icons"
+import { arrowLeftIcon, loaderIcon, stopIcon, tickIcon} from "../../assets/icons"
 import { useDispatch, useSelector } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
 import { checkUniqueUser } from "./_srv"
@@ -11,6 +11,7 @@ let initialLoad = true
 const Register = () => {
   const [username, setUsername] = useState('')
   const [isUsernameValid, setIsUsernameValid] = useState(false)
+  const [isLoadingCheckUsername, setIsLoadingCheckUsername] = useState(false)
 
   const disptach = useDispatch()
   const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
@@ -19,17 +20,20 @@ const Register = () => {
   
   useEffect(() => {
     if(!initialLoad){
+      setIsLoadingCheckUsername(true)
       const timer = setTimeout(() => {
         checkUniqueUser({userName : username})
         .then(res => {
+          setIsLoadingCheckUsername(false)
           if(res.data === true){
             setIsUsernameValid(true)
-          } else {
-            setIsUsernameValid(false)
           }
         })
-        .catch(err => toast.error('something wrong'))
-      }, 1000);
+        .catch(err => {
+          setIsLoadingCheckUsername(false)
+          toast.error('something wrong, Check connection!')
+        })
+      }, 500);
       return () => clearTimeout(timer)
     }
   }, [username])
@@ -44,20 +48,26 @@ const Register = () => {
   }
 
   const usernameValidationIcon = (isUsernameValid) => {
-    if(username.trim() === '') {
-      return null
+    if(isLoadingCheckUsername){
+      return loaderIcon('w-6 h-6 absolute right-0 z-20 text-gray-200 animate-spin dark:text-gray-100 fill-blue-700')
+      
     } else {
-      return !isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
-   }
+      if(username.trim() === '') {
+        return null
+      } else {
+        return !isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
+      }
+    }
+    
  }
 
   return (
-    <div className={`bg-[#13346e] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center`}>
+    <div className={`bg-[#1c4c9f] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center`}>
       <div className="w-3/4">
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
         <form onSubmit={registerHandler}>
           <div className="relative">
-            {usernameValidationIcon(username)}
+            {usernameValidationIcon(isUsernameValid)}
             <FormInput type='text' placeholder='Username' name='username' autoComplete='off' onChange={usernameChangeHandler} />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
