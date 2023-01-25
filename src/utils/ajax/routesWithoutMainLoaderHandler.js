@@ -1,6 +1,6 @@
 export default function routesWithoutMainLoaderHandler() {
     const routes = [
-      '/user/IsUserNameInUse',
+      '/User/IsUserNameInUse',
     ]
 
     return routes.map(item => process.env.REACT_APP_API_URL + item )

@@ -3,7 +3,7 @@ import { uiActions } from "../../store/ui/uiSlice";
 import axios from "axios";
 import routesWithoutMainLoaderHandler from "./routesWithoutMainLoaderHandler";
 
-axios.interceptors.request.use( (config) => {
+axios.interceptors.request.use((config) => {
   const urlObject = new URL(config.url)
   if(!routesWithoutMainLoaderHandler().every(item => item === urlObject.href)){
     store.dispatch(uiActions.showLoader())

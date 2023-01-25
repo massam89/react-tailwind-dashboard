@@ -2,7 +2,7 @@ import FormInput from "../../components/formInput"
 import { arrowLeftIcon, loaderIcon, stopIcon, tickIcon} from "../../assets/icons"
 import { useDispatch, useSelector } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
-import { checkUniqueUser } from "./_srv"
+import { checkUniqueUser, registerUser } from "./_srv"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
@@ -26,6 +26,8 @@ const Register = () => {
         .then(res => {
           setIsLoadingCheckUsername(false)
           if(res.data === true){
+            setIsUsernameValid(false)
+          } else {
             setIsUsernameValid(true)
           }
         })
@@ -33,32 +35,42 @@ const Register = () => {
           setIsLoadingCheckUsername(false)
           toast.error('something wrong, Check connection!')
         })
-      }, 500);
+      }, 1000);
       return () => clearTimeout(timer)
     }
   }, [username])
 
   const usernameChangeHandler = (e) => {
-    setUsername(e.target.value)
+    setUsername(e.target.value.trim())
     initialLoad = false
   }
 
   const registerHandler = (e) => {
-    e.preventDefault() 
+    e.preventDefault()
+
+    const usernameInputValue = e.target[0].value
+    const passwordInputValue = e.target[1].value
+
+    if(isUsernameValid && usernameInputValue && passwordInputValue){
+      registerUser({userName: usernameInputValue, password: passwordInputValue})
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    }else{
+      toast.error('You have to use unique username and fill all inputs!')
+    }
+
   }
 
   const usernameValidationIcon = (isUsernameValid) => {
     if(isLoadingCheckUsername){
       return loaderIcon('w-6 h-6 absolute right-0 z-20 text-gray-200 animate-spin dark:text-gray-100 fill-blue-700')
-      
     } else {
       if(username.trim() === '') {
         return null
       } else {
-        return !isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
+        return isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
       }
     }
-    
  }
 
   return (
@@ -68,7 +80,7 @@ const Register = () => {
         <form onSubmit={registerHandler}>
           <div className="relative">
             {usernameValidationIcon(isUsernameValid)}
-            <FormInput type='text' placeholder='Username' name='username' autoComplete='off' onChange={usernameChangeHandler} />
+            <FormInput type='text' placeholder='Username' name='username' autoComplete='off' value={username} onChange={usernameChangeHandler} />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">
