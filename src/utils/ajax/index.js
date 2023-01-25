@@ -25,12 +25,12 @@ export const ajax = async(mode, url, method, isBody, body) => {
 
   const baseUrl = process.env.REACT_APP_API_URL;
   const localUrl = `${baseUrl}/${url}`
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('jwtToken')
 
   switch(mode){
     case 'tokenJson':
         return (
-            new Promise( async(resolve, reject)=>{
+            new Promise(async(resolve, reject)=>{
                 await axios({
                     url: localUrl,
                     method: method,
@@ -41,6 +41,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + token,
                     },
+                                       
                 }).then(res => { 
                     resolve (res)
                 })

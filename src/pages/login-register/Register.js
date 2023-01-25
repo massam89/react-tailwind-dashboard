@@ -5,6 +5,7 @@ import { uiActions } from "../../store/ui/uiSlice"
 import { checkUniqueUser, registerUser } from "./_srv"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
+import { registerRequest, registerUserRequest } from "../../store/auth/authActions"
 
 let initialLoad = true
 
@@ -13,8 +14,8 @@ const Register = () => {
   const [isUsernameValid, setIsUsernameValid] = useState(false)
   const [isLoadingCheckUsername, setIsLoadingCheckUsername] = useState(false)
 
-  const disptach = useDispatch()
-  const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
+  const dispatch = useDispatch()
+  const linkToLoginPageHandler = () => dispatch(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
@@ -45,21 +46,18 @@ const Register = () => {
     initialLoad = false
   }
 
-  const registerHandler = (e) => {
+  const registerFormHandler = (e) => {
     e.preventDefault()
 
     const usernameInputValue = e.target[0].value
     const passwordInputValue = e.target[1].value
 
     if(isUsernameValid && usernameInputValue && passwordInputValue){
-      registerUser({userName: usernameInputValue, password: passwordInputValue})
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-    }else{
-      toast.error('You have to use unique username and fill all inputs!')
+        dispatch(registerUserRequest({userName: usernameInputValue, password: passwordInputValue}))
+      } else {
+        toast.error('Choose unique username and fill all inputs!')
+      }
     }
-
-  }
 
   const usernameValidationIcon = (isUsernameValid) => {
     if(isLoadingCheckUsername){
@@ -77,7 +75,7 @@ const Register = () => {
     <div className={`bg-[#1c4c9f] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center`}>
       <div className="w-3/4">
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
-        <form onSubmit={registerHandler}>
+        <form onSubmit={registerFormHandler}>
           <div className="relative">
             {usernameValidationIcon(isUsernameValid)}
             <FormInput type='text' placeholder='Username' name='username' autoComplete='off' value={username} onChange={usernameChangeHandler} />
