@@ -11,15 +11,14 @@ let initialLoad = true
 const Register = () => {
   const [username, setUsername] = useState('')
   const [isUsernameValid, setIsUsernameValid] = useState(false)
-  const disptach = useDispatch()
 
+  const disptach = useDispatch()
   const linkToLoginPageHandler = () => disptach(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
-
+  
   useEffect(() => {
     if(!initialLoad){
-      
       const timer = setTimeout(() => {
         checkUniqueUser({userName : username})
         .then(res => {
@@ -33,23 +32,33 @@ const Register = () => {
       }, 1000);
       return () => clearTimeout(timer)
     }
-    
-    initialLoad = false
   }, [username])
+
+  const usernameChangeHandler = (e) => {
+    setUsername(e.target.value)
+    initialLoad = false
+  }
 
   const registerHandler = (e) => {
     e.preventDefault() 
-    
   }
-  
+
+  const usernameValidationIcon = (isUsernameValid) => {
+    if(username.trim() === '') {
+      return null
+    } else {
+      return !isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
+   }
+ }
+
   return (
     <div className={`bg-[#13346e] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'xs:left-0 left-[-50%] opacity-0' : 'left-0 xs:left-[50%] opacity-100'} transition-all duration-1000 flex justify-center items-center`}>
       <div className="w-3/4">
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-3xl mb-12">Get Started</h2>
         <form onSubmit={registerHandler}>
           <div className="relative">
-            {!isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')}
-            <FormInput type='text' placeholder='Username' name='username' onChange={(e) => setUsername(e.target.value)} />
+            {usernameValidationIcon(username)}
+            <FormInput type='text' placeholder='Username' name='username' autoComplete='off' onChange={usernameChangeHandler} />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">
