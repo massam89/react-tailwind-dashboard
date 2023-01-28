@@ -19,8 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f ./.env.development react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f ./.env.production react-scripts build && cp build/index.html build/404.html",
+    "start": "env-cmd -f .env.development react-scripts start",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f .env.production react-scripts build && cp build/index.html build/404.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
