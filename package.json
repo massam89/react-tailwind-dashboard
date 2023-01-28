@@ -19,9 +19,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f .env.development react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f .env.production react-scripts build && cp build/index.html build/404.html",
-    "predeploy": "npm run build",
+    "start": "env-cmd -f ./.env.development react-scripts start",
+    "build:prod": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f ./.env.production react-scripts build && cp build/index.html build/404.html",
+    "build:dev": "env-cmd -f ./.env.development react-scripts build",
+    "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

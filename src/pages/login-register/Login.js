@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
-import { authActions } from "../../store/auth/authSlice"
 import { arrowRightIcon } from "../../assets/icons"
 import FormInput from "../../components/formInput"
 import { uiActions } from "../../store/ui/uiSlice"
-import { loginUserRequest, registerUserRequest } from "../../store/auth/authActions"
+import { loginUserRequest } from "../../store/auth/authActions"
 import { toast } from "react-toastify"
 
 const Login = () => {

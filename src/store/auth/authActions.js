@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { loginUser, logoutRequest, registerUser } from "./_srv"
+import { loginUser, registerUser } from "./_srv"
 import { authActions } from "./authSlice"
 
 export const registerUserRequest = (data) => {
