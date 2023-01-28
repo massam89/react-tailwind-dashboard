@@ -4,26 +4,20 @@ import userImage from '../../assets/images/profile-pic.jpg'
 import Search from "./Search";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { useDispatch } from "react-redux";
-import { authActions } from "../../store/auth/authSlice";
+import { logoutUserRequest } from "../../store/auth/authActions";
 
 const Profile = () => {
     const [showDropdown, setShowDropdown] = useState(false)
     const wrapperRef = useRef()
     const disptach = useDispatch()
 
-    const showProfileMenuHandler = () => {
-        setShowDropdown((prev) => !prev)
-    }
+    const showProfileMenuHandler = () => setShowDropdown((prev) => !prev)
 
-    const hideProfileMenu = () => {
-        setShowDropdown(false)
-    }
+    const hideProfileMenu = () => setShowDropdown(false)
 
     useOutsideAlerter(wrapperRef, hideProfileMenu)
 
-    const logoutHandler = () => {
-        disptach(authActions.logout())
-    }
+    const logoutHandler = () => disptach(logoutUserRequest())
 
     return (
         <div className="relative w-1/2 sm:w-fit" ref={wrapperRef} >

@@ -3,18 +3,26 @@ import { authActions } from "../../store/auth/authSlice"
 import { arrowRightIcon } from "../../assets/icons"
 import FormInput from "../../components/formInput"
 import { uiActions } from "../../store/ui/uiSlice"
+import { loginUserRequest, registerUserRequest } from "../../store/auth/authActions"
 import { toast } from "react-toastify"
 
 const Login = () => {
-  const disptach = useDispatch()
+  const dispatch = useDispatch()
 
   const sumbitHandler = (e) => {
     e.preventDefault()
-    disptach(authActions.login())
-    toast.success('Welcome to your dashboard!')
+
+    const usernameInputValue = e.target[0].value
+    const passwordInputValue = e.target[1].value
+
+    if(usernameInputValue && passwordInputValue){
+      dispatch(loginUserRequest({userName: usernameInputValue, password: passwordInputValue}))
+      }else{
+        toast.error('Fill all inputs!')
+      }
   }
   
-  const linkToRegisterPageHandler = () => disptach(uiActions.changeLoginMode())
+  const linkToRegisterPageHandler = () => dispatch(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
@@ -24,7 +32,7 @@ const Login = () => {
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-2xl md:text-3xl mb-12">Login To Dashboard</h2>
         <form onSubmit={sumbitHandler}>
           <div>
-            <FormInput type='text' name='username' placeholder='Username'/>
+            <FormInput type='text' name='username' placeholder='Username' autoComplete='off'/>
             <FormInput type='password' name='password' placeholder='Password' />
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">

@@ -2,10 +2,10 @@ import FormInput from "../../components/formInput"
 import { arrowLeftIcon, loaderIcon, stopIcon, tickIcon} from "../../assets/icons"
 import { useDispatch, useSelector } from "react-redux"
 import { uiActions } from "../../store/ui/uiSlice"
-import { checkUniqueUser, registerUser } from "./_srv"
+import { checkUniqueUser } from "./_srv"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
-import { registerRequest, registerUserRequest } from "../../store/auth/authActions"
+import { registerUserRequest } from "../../store/auth/authActions"
 
 let initialLoad = true
 

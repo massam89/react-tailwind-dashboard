@@ -1,14 +1,13 @@
-
 import { useDispatch } from "react-redux";
 import { logOutIcon } from "../../assets/icons";
-import { authActions } from "../../store/auth/authSlice";
+import { logoutUserRequest } from "../../store/auth/authActions";
+
 
 const Logout = () => {
-
   const dispatch = useDispatch()
 
   const logoutHandler = () => {
-    dispatch(authActions.logout())
+    dispatch(logoutUserRequest())
   }
 
   return (

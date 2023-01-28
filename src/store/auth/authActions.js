@@ -1,5 +1,6 @@
 import { toast } from "react-toastify"
-import { loginUser, registerUser } from "./_srv"
+import { loginUser, logoutRequest, registerUser } from "./_srv"
+import { authActions } from "./authSlice"
 
 export const registerUserRequest = (data) => {
     return (dispatch) => {
@@ -11,7 +12,7 @@ export const registerUserRequest = (data) => {
                 toast.error('Username is not unique')
             }
         })
-        .catch(err => toast.error('Something wrong!'))
+        .catch(err => toast.error('Something wrong when try to register new username!'))
     }
 }
 
@@ -19,9 +20,24 @@ export const loginUserRequest = (data) => {
     return (dispatch) => {
         loginUser(data)
         .then(res => {
-            console.log(res)
+            if(res.data.success){
+                localStorage.setItem('id', res.data.content.id)
+                localStorage.setItem('jwtToken', res.data.content.jwtToken)
+                localStorage.setItem('userName', res.data.content.userName)
+                dispatch(authActions.login())
+            } else {
+                toast.error('something wrong to login after registeration!')
+            }
         })
-        .catch(err => console.log(err))
+        .catch(err => toast.error('Wrong username or passoword!'))
     }
+}
+
+export const logoutUserRequest = (data) => {
+    return (dispatch) => {
+        localStorage.clear()
+        dispatch(authActions.logout())
+    }
+    
 }
 

@@ -41,7 +41,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + token,
                     },
-                                       
+                            
                 }).then(res => { 
                     resolve (res)
                 })
