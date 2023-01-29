@@ -11,9 +11,7 @@ const Menu = () => {
   const disptach = useDispatch()
   const menuRef = useRef()
 
-  const hideMenu = () => {
-    disptach(uiActions.hideMenuDisplay())
-  }
+  const hideMenu = () => disptach(uiActions.hideMenuDisplay())
 
   useOutsideAlerter(menuRef, hideMenu)
 

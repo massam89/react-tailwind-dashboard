@@ -9,9 +9,7 @@ const MenuItems = ({item}) => {
   const notActive = mutualStyle
   const activeStyle = `bg-darkblue ${mutualStyle}`
 
-  const hideMenuOnClickLinks = () => {
-    dispatch(uiActions.hideMenuDisplay())
-  }
+  const hideMenuOnClickLinks = () => dispatch(uiActions.hideMenuDisplay())
 
   return (
     <li>

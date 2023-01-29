@@ -1,8 +1,8 @@
 import { searchIcon } from "../../assets/icons";
 
-const Search = (props) => {
+const Search = () => {
   return (
-    <form className={props.className}>
+    <form className="w-2/4 relative hidden sm:block">
       <input
         className="outline-1 outline-gray-400 w-full mt-1 py-1 bg-gray-200 border-solid border-gray-300 border-2 pl-4 rounded-md"
         type="text"

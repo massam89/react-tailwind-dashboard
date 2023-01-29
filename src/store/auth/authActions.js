@@ -38,6 +38,5 @@ export const logoutUserRequest = (data) => {
         localStorage.clear()
         dispatch(authActions.logout())
     }
-    
 }
 

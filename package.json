@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.development react-scripts start",
-    "build:dev": "env-cmd -f .env.development react-scripts build && cp build/index.html build/404.html",
+    "build:dev": "env-cmd -f .env.development react-scripts build",
     "build:prod": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f .env.production react-scripts build && cp build/index.html build/404.html",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d build",

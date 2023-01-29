@@ -5,9 +5,7 @@ const MenuContainer = () => {
 
   return (
     <ul className="flex flex-col">
-      {menuItems.map((item, index) => (
-        <MenuItems key={index} item={item} />
-      ))}
+      {menuItems.map((item, index) => <MenuItems key={index} item={item} /> )}
     </ul>
   );
 };
