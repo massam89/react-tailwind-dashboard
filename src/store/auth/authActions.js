@@ -1,6 +1,7 @@
 import { toast } from "react-toastify"
 import { loginUser, registerUser } from "./_srv"
 import { authActions } from "./authSlice"
+import { uiActions } from "../ui/uiSlice"
 
 export const registerUserRequest = (data) => {
     return (dispatch) => {
@@ -36,6 +37,7 @@ export const loginUserRequest = (data) => {
 export const logoutUserRequest = (data) => {
     return (dispatch) => {
         localStorage.clear()
+        dispatch(uiActions.hideMenuDisplay())
         dispatch(authActions.logout())
     }
 }

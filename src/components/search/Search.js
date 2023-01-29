@@ -1,8 +1,8 @@
-import { searchIcon } from "../../assets/icons";
+import { searchIcon } from "../../assets/icons"
 
-const Search = () => {
+const Search = (props) => {
   return (
-    <form className="w-2/4 relative hidden sm:block">
+    <form className={`${props.className}`}>
       <input
         className="outline-1 outline-gray-400 w-full mt-1 py-1 bg-gray-200 border-solid border-gray-300 border-2 pl-4 rounded-md"
         type="text"
@@ -15,7 +15,7 @@ const Search = () => {
         {searchIcon("w-5 w-5")}
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

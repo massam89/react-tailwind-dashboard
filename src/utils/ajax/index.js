@@ -32,6 +32,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
         return (
             new Promise(async(resolve, reject)=>{
                 await axios({
+                    withCredentials: true,
                     url: localUrl,
                     method: method,
                     data: isBody ? JSON.stringify(body) : null,
@@ -39,15 +40,10 @@ export const ajax = async(mode, url, method, isBody, body) => {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + token,
-                    },
-                            
-                }).then(res => { 
-                    resolve (res)
-                })
-                .catch(err=>{   
-                    reject (err)
-                })
+                        'Authorization': token ? 'Bearer ' + token : null,
+                    },  
+                }).then(res => resolve (res))
+                  .catch(err=>reject (err))
             })  
         );  
     default:

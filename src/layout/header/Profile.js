@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 import { arrowDownIcon } from "../../assets/icons";
 import userImage from '../../assets/images/profile-pic.jpg'
-import Search from "./Search";
+import Search from "../../components/search/Search";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { useDispatch } from "react-redux";
 import { logoutUserRequest } from "../../store/auth/authActions";
