@@ -14,7 +14,7 @@ const Hero = () => {
 
         <main className="flex flex-col items-center">
           {starIcon('w-[10vw]')}
-          <h1 className="mt-3 text-[3vw] mb-14 font-bold tracking-wider">CLASSBOx</h1>
+          <h1 className="mt-3 text-[3vw] mb-14 font-bold tracking-wider">CLASSBOX</h1>
           <p className="w-3/4 text-center text-[1.25vw]">Everything is always integrated with your college's online handouts</p>
         </main>
 
