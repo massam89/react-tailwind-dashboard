@@ -40,10 +40,10 @@ export const ajax = async(mode, url, method, isBody, body) => {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization': token ? 'Bearer ' + token : null,
+                        'Authorization': token ? `Bearer ${token}` : null,
                     },  
                 }).then(res => resolve (res))
-                  .catch(err=>reject (err))
+                  .catch(err => reject (err))
             })  
         );  
     default:

@@ -13,10 +13,9 @@ const Register = () => {
   const [username, setUsername] = useState('')
   const [isUsernameValid, setIsUsernameValid] = useState(false)
   const [isLoadingCheckUsername, setIsLoadingCheckUsername] = useState(false)
-
   const dispatch = useDispatch()
-  const linkToLoginPageHandler = () => dispatch(uiActions.changeLoginMode())
 
+  const linkToLoginPageHandler = () => dispatch(uiActions.changeLoginMode())
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   useEffect(() => {
