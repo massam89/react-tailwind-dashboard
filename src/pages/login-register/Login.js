@@ -4,10 +4,10 @@ import FormInput from "../../components/formInput"
 import { uiActions } from "../../store/ui/uiSlice"
 import { loginUserRequest } from "../../store/auth/authActions"
 import { toast } from "react-toastify"
-import { useState } from "react"
+import useUsernameValidation from "../../hooks/useUsernameValidation"
 
 const Login = () => {
-  const [username, setUsername] = useState('')
+  const [username, setUsernameHandler] = useUsernameValidation()
   const dispatch = useDispatch()
 
   const sumbitHandler = (e) => {
@@ -22,14 +22,6 @@ const Login = () => {
         toast.error('Fill all inputs!')
       }
   }
-
-  const setUsernameHandler = (e) => {
-    if(e.target.value.includes(' ')){
-      toast.warn('you can not use space in username input!')
-      return
-    }
-    setUsername(e.target.value.trim().toLowerCase())
-  } 
   
   const linkToRegisterPageHandler = () => dispatch(uiActions.changeLoginMode())
 

@@ -6,11 +6,12 @@ import { checkUniqueUser } from "./_srv"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { registerUserRequest } from "../../store/auth/authActions"
+import useUsernameValidation from "../../hooks/useUsernameValidation"
 
 let initialLoad = true
 
 const Register = () => {
-  const [username, setUsername] = useState('')
+  const [username, setUsernameHandler] = useUsernameValidation()
   const [isUsernameValid, setIsUsernameValid] = useState(false)
   const [isLoadingCheckUsername, setIsLoadingCheckUsername] = useState(false)
   const dispatch = useDispatch()
@@ -42,12 +43,8 @@ const Register = () => {
     }
   }, [username])
 
-  const usernameChangeHandler = (e) => {
-    if(e.target.value.includes(' ')){
-      toast.warn('you can not use space in username input!')
-      return
-    }
-    setUsername(e.target.value.trim().toLowerCase())
+  const changeUsernameHandler = (e) => {
+    setUsernameHandler(e)
     initialLoad = false
   }
 
@@ -83,7 +80,7 @@ const Register = () => {
         <form onSubmit={registerFormHandler}>
           <div className="relative">
             {usernameValidationIcon(isUsernameValid)}
-            <FormInput type='text' placeholder='Username' name='username' autoComplete='off' value={username} onChange={usernameChangeHandler} />
+            <FormInput type='text' placeholder='Username' name='username' autoComplete='off' value={username} onChange={changeUsernameHandler} />
             <FormInput type='password' placeholder='Password' name='password' />          
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">
