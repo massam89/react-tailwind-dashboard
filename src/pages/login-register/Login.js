@@ -4,8 +4,10 @@ import FormInput from "../../components/formInput"
 import { uiActions } from "../../store/ui/uiSlice"
 import { loginUserRequest } from "../../store/auth/authActions"
 import { toast } from "react-toastify"
+import { useState } from "react"
 
 const Login = () => {
+  const [username, setUsername] = useState('')
   const dispatch = useDispatch()
 
   const sumbitHandler = (e) => {
@@ -20,18 +22,26 @@ const Login = () => {
         toast.error('Fill all inputs!')
       }
   }
+
+  const setUsernameHandler = (e) => {
+    if(e.target.value.includes(' ')){
+      toast.warn('you can not use space in username input!')
+      return
+    }
+    setUsername(e.target.value.trim().toLowerCase())
+  } 
   
   const linkToRegisterPageHandler = () => dispatch(uiActions.changeLoginMode())
 
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   return (
-    <div className={`bg-[#1c4c9f] xs:bg-white  h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'right-0 xs:right-[50%] opacity-100 z-10' : 'xs:right-0 right-[-50%] opacity-0 -z-10'} transition-all duration-1000 flex justify-center items-center`}>
+    <div className={`bg-[#1c4c9f] xs:bg-white h-full w-full xs:w-1/2 absolute ${isLoginMode ? 'right-0 xs:right-[50%] opacity-100 z-10' : 'xs:right-0 right-[-50%] opacity-0 -z-10'} transition-all duration-1000 flex justify-center items-center`}>
       <div className="w-3/4">
         <h2 className="text-gray-200 xs:text-gray-500 font-bold text-2xl md:text-3xl mb-12">Login To Dashboard</h2>
         <form onSubmit={sumbitHandler}>
           <div>
-            <FormInput type='text' name='username' placeholder='Username' autoComplete='off'/>
+            <FormInput type='text' name='username' placeholder='Username' autoComplete='off' value={username} onChange={setUsernameHandler}/>
             <FormInput type='password' name='password' placeholder='Password' />
           </div>
           <div className="flex flex-col md:flex-row justify-end md:justify-between items-center md:items-center mt-8 md:mt-14">

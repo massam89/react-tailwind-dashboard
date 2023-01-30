@@ -20,7 +20,7 @@ const Register = () => {
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   useEffect(() => {
-    if(!initialLoad){
+    if(!initialLoad && username){
       setIsLoadingCheckUsername(true)
       const timer = setTimeout(() => {
         checkUniqueUser({userName : username})
@@ -38,11 +38,17 @@ const Register = () => {
         })
       }, 1000);
       return () => clearTimeout(timer)
+    } else {
+      setIsLoadingCheckUsername(false)
     }
   }, [username])
 
   const usernameChangeHandler = (e) => {
-    setUsername(e.target.value.trim())
+    if(e.target.value.includes(' ')){
+      toast.warn('you can not use space in username input!')
+      return
+    }
+    setUsername(e.target.value.trim().toLowerCase())
     initialLoad = false
   }
 
@@ -64,7 +70,7 @@ const Register = () => {
       return loaderIcon('w-6 h-6 absolute right-0 z-20 text-gray-200 animate-spin dark:text-gray-100 fill-blue-700')
     } else {
       if(username.trim() === '') {
-        return null
+        return null     
       } else {
         return isUsernameValid ? tickIcon('w-7 h-7 absolute right-0 z-20 text-green-500') : stopIcon('w-7 h-7 absolute right-0 z-20 text-red-500')
       }

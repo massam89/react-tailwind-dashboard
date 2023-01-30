@@ -21,11 +21,11 @@ function App() {
        <main className="sm:col-span-1 md:col-span-3 lg:col-span-4 h-screen bg-gray-100 ">
            <Header/>
            <Routes>
-           <Route index element={<Navigate to="/dashboard" />} />
-             {menuItems.map((item) => {
-               return <Route key={item.id} path={item.path} element={<item.component />} />;
-             })}
-             <Route path="*" element={<Navigate to="/dashboard" />} />
+            <Route index element={<Navigate to="/dashboard" />} />
+              {menuItems.map((item) => {
+                return <Route key={item.id} path={item.path} element={<item.component />} />;
+              })}
+              <Route path="*" element={<Navigate to="/dashboard" />} />
            </Routes>
        </main>
      </div>
@@ -44,18 +44,7 @@ function App() {
   return (
     <>
       {isLoader && <Loader />}
-      <ToastContainer
-        position="bottom-left"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <ToastContainer position="bottom-left" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       {renderRouters()}
     </> 
   )
