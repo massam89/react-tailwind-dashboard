@@ -59,7 +59,7 @@ const Register = () => {
       } else {
         toast.error('Choose unique username and fill all inputs!')
       }
-    }
+  }
 
   const usernameValidationIcon = (isUsernameValid) => {
     if(isLoadingCheckUsername){
