@@ -25,6 +25,7 @@ export const loginUserRequest = (data) => {
                 localStorage.setItem('id', res.data.content.id)
                 localStorage.setItem('jwtToken', res.data.content.jwtToken)
                 localStorage.setItem('userName', res.data.content.userName)
+                localStorage.setItem('isAuth', true)
                 dispatch(authActions.login())
             } else {
                 toast.error('something wrong to login after registeration!')

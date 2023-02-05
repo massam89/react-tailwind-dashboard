@@ -30,7 +30,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
   switch(mode){
     case 'tokenJson':
         return (
-            new Promise(async(resolve, reject)=>{
+            new Promise(async(resolve, reject) => {
                 await axios({
                     withCredentials: true,
                     url: localUrl,
