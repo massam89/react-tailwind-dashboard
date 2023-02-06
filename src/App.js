@@ -1,6 +1,6 @@
 import Menu from "./layout/menu";
 import Header from "./layout/header";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
 import { menuItems } from "./data/menuItems";
@@ -13,8 +13,17 @@ function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
   const isLoader = useSelector(state => state.ui.loader)
   const dispatch = useDispatch()
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  useEffect(() => {if(localStorage.getItem('id')) dispatch(checkJwtTokenRequest())}, [])
+  console.log(location.pathname)
+
+  useEffect(() => {
+    if(localStorage.getItem('id')) {  
+      dispatch(checkJwtTokenRequest())
+      navigate(location.pathname)
+    }
+  }, [dispatch])
 
   const renderRouters = () => {
     if(isAuth) {
