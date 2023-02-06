@@ -17,7 +17,6 @@ axios.interceptors.response.use((response) => {
     store.dispatch(uiActions.hideLoader())
     return response;
   }, (error) => {
-    console.log(error)
     store.dispatch(uiActions.hideLoader())
     return Promise.reject(error);
   });

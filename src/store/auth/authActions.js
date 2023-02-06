@@ -43,7 +43,7 @@ export const logoutUserRequest = () => {
     }
 }
 
-export const checkJwtTokenRequest = (route) => {
+export const checkJwtTokenRequest = () => {
     return (dispatch) => {
         checkJwtToken()
         .then(res => {
