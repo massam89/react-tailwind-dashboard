@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { loginUser, registerUser } from "./_srv"
+import { checkJwtToken, loginUser, registerUser } from "./_srv"
 import { authActions } from "./authSlice"
 import { uiActions } from "../ui/uiSlice"
 
@@ -41,5 +41,20 @@ export const logoutUserRequest = (data) => {
         dispatch(uiActions.hideMenuDisplay())
         dispatch(authActions.logout())
     }
+}
+
+export const checkJwtTokenRequest = () => {
+    return (dispatch) => {
+        checkJwtToken()
+        .then(res => {
+            if(res.data.success){
+                dispatch(authActions.login())
+            } else {
+                dispatch(logoutUserRequest())
+            }
+        })
+        .catch(err => toast.warn('Connection Error'))
+    }
+    
 }
 

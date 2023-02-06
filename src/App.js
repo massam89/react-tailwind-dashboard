@@ -1,15 +1,24 @@
 import Menu from "./layout/menu";
 import Header from "./layout/header";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoginRegister from "./pages/login-register";
 import { menuItems } from "./data/menuItems";
 import { ToastContainer } from "react-toastify";
 import Loader from "./components/loader";
+import { useEffect } from "react";
+import { checkJwtTokenRequest } from "./store/auth/authActions";
 
 function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
   const isLoader = useSelector(state => state.ui.loader)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(localStorage.getItem('id')){
+      dispatch(checkJwtTokenRequest())
+    }
+  }, [])
 
   const renderRouters = () => {
     if(isAuth) {

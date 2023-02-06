@@ -32,7 +32,6 @@ export const ajax = async(mode, url, method, isBody, body) => {
         return (
             new Promise(async(resolve, reject) => {
                 await axios({
-                    withCredentials: true,
                     url: localUrl,
                     method: method,
                     data: isBody ? JSON.stringify(body) : null,
