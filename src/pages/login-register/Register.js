@@ -33,6 +33,7 @@ const Register = () => {
           }
         })
         .catch(err => {
+          setIsUsernameValid(false)
           setIsLoadingCheckUsername(false)
           toast.error('something wrong, Check connection!')
         })

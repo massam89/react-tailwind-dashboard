@@ -35,7 +35,7 @@ export const loginUserRequest = (data) => {
     }
 }
 
-export const logoutUserRequest = (data) => {
+export const logoutUserRequest = () => {
     return (dispatch) => {
         localStorage.clear()
         dispatch(uiActions.hideMenuDisplay())
@@ -54,7 +54,5 @@ export const checkJwtTokenRequest = () => {
             }
         })
         .catch(err => toast.warn('Connection Error'))
-    }
-    
+    }  
 }
-

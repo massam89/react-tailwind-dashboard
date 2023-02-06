@@ -14,11 +14,7 @@ function App() {
   const isLoader = useSelector(state => state.ui.loader)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    if(localStorage.getItem('id')){
-      dispatch(checkJwtTokenRequest())
-    }
-  }, [])
+  useEffect(() => {if(localStorage.getItem('id')) dispatch(checkJwtTokenRequest())}, [])
 
   const renderRouters = () => {
     if(isAuth) {
