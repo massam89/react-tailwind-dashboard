@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { checkJwtToken, loginUser, registerUser } from "./_srv"
+import { loginUser, registerUser, revokeToken } from "./_srv"
 import { authActions } from "./authSlice"
 import { uiActions } from "../ui/uiSlice"
 
@@ -25,8 +25,12 @@ export const loginUserRequest = (data) => {
                 localStorage.setItem('id', res.data.content.id)
                 localStorage.setItem('jwtToken', res.data.content.jwtToken)
                 localStorage.setItem('userName', res.data.content.userName)
+                localStorage.setItem('refreshToken', res.data.content.refreshToken)
                 localStorage.setItem('isAuth', true)
                 dispatch(authActions.login())
+                setTimeout(() => {
+                    console.log('first')
+                }, 10000)
             } else {
                 toast.error('something wrong to login after registeration!')
             }
@@ -37,22 +41,14 @@ export const loginUserRequest = (data) => {
 
 export const logoutUserRequest = () => {
     return (dispatch) => {
-        localStorage.clear()
-        dispatch(uiActions.hideMenuDisplay())
-        dispatch(authActions.logout())
-    }
-}
-
-export const checkJwtTokenRequest = () => {
-    return (dispatch) => {
-        checkJwtToken()
+        revokeToken(localStorage.getItem('refreshToken'))
         .then(res => {
             if(res.data.success){
-                dispatch(authActions.login())
-            } else {
-                dispatch(logoutUserRequest())
-            }
+                localStorage.clear()
+                dispatch(uiActions.hideMenuDisplay())
+                dispatch(authActions.logout())  
+            } 
         })
-        .catch(err => toast.warn('Connection Error'))
-    }  
+        .catch(err => toast.error('Connection has problem for logging out!'))  
+    }
 }
