@@ -46,6 +46,6 @@ export const ajax = async(mode, url, method, isBody, body) => {
         })  
       );  
     default:
-        return
+      return
   }
 };
