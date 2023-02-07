@@ -7,8 +7,7 @@ import store from "./store";
 import { BrowserRouter } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
     <Provider store={store}>
       <React.StrictMode>

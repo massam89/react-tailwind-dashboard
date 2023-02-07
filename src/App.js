@@ -11,10 +11,9 @@ function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
   const isLoader = useSelector(state => state.ui.loader)
 
-  const renderRouters = () => {
-    if(isAuth) {
-      return (
-     <div className="grid md:grid-cols-3 lg:grid-cols-5 overflow-x-hidden lg:overflow-hidden">
+  const routesWithAuth = () => {
+    return (
+      <div className="grid md:grid-cols-3 lg:grid-cols-5 overflow-x-hidden lg:overflow-hidden">
        <div>
          <Menu />
        </div>
@@ -26,24 +25,27 @@ function App() {
               <Route path="*" element={<Navigate to="/dashboard" />} />
            </Routes>
        </main>
-     </div>
-   );
-      } else {
-        return (
-          <Routes>
-            <Route index element={<Navigate to="/login-register" />} />
-            <Route path="/login-register" element={<LoginRegister />} />
-            <Route path="*" element={<Navigate to="/login-register" />} />
-          </Routes>
-        )
-    }
+      </div>
+    )
   }
+
+  const routesWithoutAuth = () => {
+    return (
+      <Routes>
+        <Route index element={<Navigate to="/login-register" />} />
+        <Route path="/login-register" element={<LoginRegister />} />
+        <Route path="*" element={<Navigate to="/login-register" />} />
+      </Routes>
+    )
+  }
+
+  const renderRoutes = () => isAuth ? routesWithAuth() : routesWithoutAuth()
 
   return (
     <>
       {isLoader && <Loader />}
       <ToastContainer position="bottom-left" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
-      {renderRouters()}
+      {renderRoutes()}
     </> 
   )
 }
