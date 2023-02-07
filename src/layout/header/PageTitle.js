@@ -10,12 +10,13 @@ const PageTitle = () => {
   const dispatch = useDispatch()
   const {pathname} = useLocation()
 
-  const isMenuThere = menuItems.some((item) => item.path === pathname)
-  const preparedPathname = isMenuThere ? removeSlashAndCapitalizeFirstLetter(pathname) : 'NotFound Page'
+  const preparedPathname = removeSlashAndCapitalizeFirstLetter(pathname)
+
+  const hideMenuHandler = () => dispatch(uiActions.changeMenuDisplay())
   
   return (
     <div className="flex items-center">
-        <div onClick={() => dispatch(uiActions.changeMenuDisplay()) }>
+        <div onClick={hideMenuHandler}>
           {menuIcon('w-7 lg:hidden cursor-pointer pt-1')}
         </div>
         <h2 className="font-bold lg:text-2xl md:text-xl pl-2 tracking-wide text-gray-800">{preparedPathname}</h2>

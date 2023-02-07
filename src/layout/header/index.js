@@ -1,6 +1,6 @@
 import PageTitle from "./PageTitle";
 import Profile from "./Profile";
-import Search from "../../components/search/Search";
+import Search from "../../components/search";
 
 const Header = () => {
 

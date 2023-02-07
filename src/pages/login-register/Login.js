@@ -15,16 +15,15 @@ const Login = () => {
 
     const usernameInputValue = e.target[0].value
     const passwordInputValue = e.target[1].value
-
+    
     if(usernameInputValue && passwordInputValue){
       dispatch(loginUserRequest({userName: usernameInputValue, password: passwordInputValue}))
-      }else{
-        toast.error('Fill all inputs!')
-      }
+    }else{
+      toast.error('Fill all inputs!')
+    }
   }
   
   const linkToRegisterPageHandler = () => dispatch(uiActions.changeLoginMode())
-
   const isLoginMode = useSelector(state => state.ui.loginMode)
   
   return (
