@@ -68,15 +68,21 @@ export const checkTokenValidation = () => {
         if(expirationTime < currentTime){
             refreshToken(refToken)
             .then(res => {
-                if(res.content.success){
+                if(res.success){
+                    console.log(localStorage.getItem('jwtToken'))
                     localStorage.setItem('jwtToken', res.content.jwtToken)
+                    localStorage.setItem('refreshToken', res.content.refreshToken)
+                    console.log(localStorage.getItem('jwtToken'))
+                    console.log('first')
                 } else {
                     dispatch(logoutUserRequest())
+                    console.log('second')
                 }
             })
             .catch(err => {
                 toast.warn('you have to check connection or login again!')
                 dispatch(logoutUserRequest())
+                console.log('third')
             })
         } else {
             if(localStorage.getItem('isAuth')){
