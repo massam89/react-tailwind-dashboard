@@ -74,7 +74,10 @@ export const checkTokenValidation = () => {
                     dispatch(logoutUserRequest())
                 }
             })
-            .catch(err => toast.warn('you have to check connection or login or register again!'))
+            .catch(err => {
+                toast.warn('you have to check connection or login again!')
+                dispatch(logoutUserRequest())
+            })
         } else {
             if(localStorage.getItem('isAuth')){
               dispatch(authActions.login())  
