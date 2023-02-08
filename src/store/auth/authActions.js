@@ -30,7 +30,7 @@ export const loginUserRequest = (data) => {
                 localStorage.setItem('refreshToken', res.data.content.refreshToken)
                 localStorage.setItem('isAuth', true)
 
-                const expirationTime = jwtDecode(localStorage.getItem('jwtToken')).exp
+                const expirationTime = jwtDecode(localStorage.getItem('jwtToken')).exp * 1000
                 localStorage.setItem('expTime', expirationTime)
 
                 dispatch(authActions.login())
@@ -58,20 +58,29 @@ export const logoutUserRequest = () => {
 
 export const checkTokenValidation = () => {
     return (dispatch) => {
-        const refToken = localStorage.getItem('refreshToken')
-        const expirationTime = localStorage.getItem('expTime')
-        const currentTime = Date.now()
+        const currentTime =  Date.now()
+        const refToken = localStorage.getItem('refreshToken') 
+        const expirationTime = +localStorage.getItem('expTime') || currentTime
+        
+        console.log('expiration', new Date(expirationTime).getMinutes())
+        console.log('current', new Date(currentTime).getMinutes())
         
         if(expirationTime < currentTime){
             refreshToken(refToken)
             .then(res => {
-                if(res.data.content.success){
-                    localStorage.setItem('jwtToken', res.data.content.jwtToken)
+                if(res.content.success){
+                    localStorage.setItem('jwtToken', res.content.jwtToken)
                 } else {
                     dispatch(logoutUserRequest())
                 }
             })
             .catch(err => toast.warn('you have to check connection or login or register again!'))
+        } else {
+            if(localStorage.getItem('isAuth')){
+              dispatch(authActions.login())  
+            } else {
+              dispatch(authActions.logout()) 
+            }
         }
     }
 }
