@@ -2,6 +2,7 @@ import { toast } from "react-toastify"
 import { loginUser, registerUser, revokeToken } from "./_srv"
 import { authActions } from "./authSlice"
 import { uiActions } from "../ui/uiSlice"
+import jwtDecode from "jwt-decode"
 
 export const registerUserRequest = (data) => {
     return (dispatch) => {
@@ -22,15 +23,17 @@ export const loginUserRequest = (data) => {
         loginUser(data)
         .then(res => {
             if(res.data.success){
+
                 localStorage.setItem('id', res.data.content.id)
                 localStorage.setItem('jwtToken', res.data.content.jwtToken)
-                localStorage.setItem('userName', res.data.content.userName)
+                localStorage.setItem('username', res.data.content.userName)
                 localStorage.setItem('refreshToken', res.data.content.refreshToken)
                 localStorage.setItem('isAuth', true)
+
+                const expirationTime = jwtDecode(localStorage.getItem('jwtToken')).exp
+                localStorage.setItem('expTime', expirationTime)
+
                 dispatch(authActions.login())
-                setTimeout(() => {
-                    console.log('first')
-                }, 10000)
             } else {
                 toast.error('something wrong to login after registeration!')
             }
@@ -50,5 +53,11 @@ export const logoutUserRequest = () => {
             } 
         })
         .catch(err => toast.error('Connection has problem for logging out!'))  
+    }
+}
+
+export const checkTokenValidation = () => {
+    return (dispatch) => {
+
     }
 }

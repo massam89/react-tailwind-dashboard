@@ -22,7 +22,7 @@ const Profile = () => {
         <div className="relative w-1/2 sm:w-fit" ref={wrapperRef} >
             <div onClick={ showProfileMenuHandler } className=" cursor-pointer pr-4 flex items-center justify-evenly border-gray-300 border-2 bg-gray-200 rounded-md">
                <img className="rounded w-6 m-1" src={userImage} alt="profile-pic" />
-                <span className="font-semibold mx-2 hidden xs:block text-sm select-none">{localStorage.getItem('userName')}</span>
+                <span className="font-semibold mx-2 hidden xs:block text-sm select-none">{localStorage.getItem('username')}</span>
                  {arrowDownIcon('w-4 h-4')} 
             </div>
             

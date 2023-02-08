@@ -31,18 +31,18 @@ export const ajax = async(mode, url, method, isBody, body) => {
     case 'tokenJson':
       return (
         new Promise(async(resolve, reject) => {
-            await axios({
-                url: localUrl,
-                method: method,
-                data: isBody ? JSON.stringify(body) : null,
-                timeout: 60 * 1 * 1000,
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                  'Authorization': token ? `Bearer ${token}` : null
-                },  
-            }).then(res => resolve (res))
-              .catch(err => reject (err))
+          await axios({
+              url: localUrl,
+              method: method,
+              data: isBody ? JSON.stringify(body) : null,
+              timeout: 60 * 1 * 1000,
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : null
+              },  
+          }).then(res => resolve (res))
+            .catch(err => reject (err))
         })  
       );  
     default:
