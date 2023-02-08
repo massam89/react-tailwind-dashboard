@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { loginUser, registerUser, revokeToken } from "./_srv"
+import { loginUser, registerUser, revokeToken, refreshToken } from "./_srv"
 import { authActions } from "./authSlice"
 import { uiActions } from "../ui/uiSlice"
 import jwtDecode from "jwt-decode"
@@ -58,6 +58,20 @@ export const logoutUserRequest = () => {
 
 export const checkTokenValidation = () => {
     return (dispatch) => {
-
+        const refToken = localStorage.getItem('refreshToken')
+        const expirationTime = localStorage.getItem('expTime')
+        const currentTime = Date.now()
+        
+        if(expirationTime < currentTime){
+            refreshToken(refToken)
+            .then(res => {
+                if(res.data.content.success){
+                    localStorage.setItem('jwtToken', res.data.content.jwtToken)
+                } else {
+                    dispatch(logoutUserRequest())
+                }
+            })
+            .catch(err => toast.warn('you have to check connection or login or register again!'))
+        }
     }
 }
