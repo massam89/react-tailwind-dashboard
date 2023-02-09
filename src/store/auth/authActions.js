@@ -68,10 +68,13 @@ export const checkTokenValidation = () => {
         if(expirationTime < currentTime){
             refreshToken(refToken)
             .then(res => {
-                if(res.success){
+                console.log(res);
+                console.log(res.data.success);
+                if(res.data.success){
+                    
                     console.log(localStorage.getItem('jwtToken'))
-                    localStorage.setItem('jwtToken', res.content.jwtToken)
-                    localStorage.setItem('refreshToken', res.content.refreshToken)
+                    localStorage.setItem('jwtToken', res.data.content.jwtToken)
+                    localStorage.setItem('refreshToken', res.data.content.refreshToken)
                     console.log(localStorage.getItem('jwtToken'))
                     console.log('first')
                 } else {
