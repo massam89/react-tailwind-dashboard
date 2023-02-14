@@ -62,37 +62,22 @@ export const checkTokenValidation = () => {
         const refToken = localStorage.getItem('refreshToken') 
         const expirationTime = +localStorage.getItem('expTime') || currentTime
         
-        console.log('expiration', new Date(expirationTime).getMinutes())
-        console.log('current', new Date(currentTime).getMinutes())
-        
         if(expirationTime < currentTime){
             refreshToken(refToken)
             .then(res => {
-                console.log(res);
-                console.log(res.data.success);
-                if(res.data.success){
-                    
-                    console.log(localStorage.getItem('jwtToken'))
+                if(res.data.success){           
                     localStorage.setItem('jwtToken', res.data.content.jwtToken)
                     localStorage.setItem('refreshToken', res.data.content.refreshToken)
-                    console.log(localStorage.getItem('jwtToken'))
-                    console.log('first')
+                    localStorage.setItem('expTime', jwtDecode(localStorage.getItem('jwtToken')).exp * 1000)
                 } else {
                     dispatch(logoutUserRequest())
-                    console.log('second')
+                    toast.error('Token is not valid!')
                 }
             })
             .catch(err => {
                 toast.warn('you have to check connection or login again!')
                 dispatch(logoutUserRequest())
-                console.log('third')
             })
-        } else {
-            if(localStorage.getItem('isAuth')){
-              dispatch(authActions.login())  
-            } else {
-              dispatch(authActions.logout()) 
-            }
         }
     }
 }

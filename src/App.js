@@ -12,9 +12,9 @@ import { checkTokenValidation } from "./store/auth/authActions";
 function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
   const isLoader = useSelector(state => state.ui.loader)
-  const disptach = useDispatch()
+  const dispatch = useDispatch()
 
-  useEffect(() => disptach(checkTokenValidation()), [disptach])
+  useEffect(() => dispatch(checkTokenValidation()), [dispatch])
 
   const routesWithAuth = () => {
     return (
