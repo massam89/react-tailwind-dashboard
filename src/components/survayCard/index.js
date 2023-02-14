@@ -9,8 +9,15 @@ const SurvayCard = ({card}) => {
         green: 'bg-green-100 text-green-400'
       }
 
+    const borderAndShadowVariants = {
+        blue: 'hover:shadow-blue-300 hover:border-blue-300',
+        red: 'hover:shadow-red-300 hover:border-red-300',
+        yellow: 'hover:shadow-yellow-300 hover:border-yellow-300',
+        green: 'hover:shadow-green-300 hover:border-green-300'
+    }
+
     return (
-        <div className="flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg hover:shadow-blue-300 border-2 border-transparent hover:border-2 hover:border-blue-300 box-content transition-color duration-200 md:p-3 w-full sm:w-[calc(50%-15px)] lg:py-4 rounded-lg shadow-xl">
+        <div className={`${borderAndShadowVariants[card.trolleyColor]} flex items-center justify-around sm:justify-around py-5 mb-3 md:justify-between bg-white hover:shadow-lg border-2 border-transparent hover:border-2 box-content transition-color duration-200 md:p-3 w-full sm:w-[calc(50%-15px)] lg:py-4 rounded-lg shadow-xl`}>
             <div className="flex flex-col">
                 <span className="font-bold lg:text-lg md:text-md">{card.title}</span>
                 <span className="font-bold md:text-2xl lg:text-3xl">{card.price}</span>
