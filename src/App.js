@@ -26,8 +26,8 @@ function App() {
            <Header/>
            <Routes>
             <Route index element={<Navigate to="/dashboard" />} />
-              {menuItems.map((item) => <Route key={item.id} path={item.path} element={<item.component />} />)}
-              <Route path="*" element={<Navigate to="/dashboard" />} />
+            {menuItems.map((item) => <Route key={item.id} path={item.path} element={<item.component />} />)}
+            <Route path="*" element={<Navigate to="/dashboard" />} />
            </Routes>
        </main>
       </div>
