@@ -2,16 +2,9 @@ import store from "../../store";
 import { uiActions } from "../../store/ui/uiSlice";
 import axios from "axios";
 import routesWithoutMainLoaderHandler from "./routesWithoutMainLoaderHandler";
-import { checkTokenValidation } from "../../store/auth/authActions";
 
 axios.interceptors.request.use((config) => {
-  const urlObject = new URL(config.url)
-  if(!routesWithoutMainLoaderHandler().every(item => item === urlObject.href)){
-    store.dispatch(uiActions.showLoader())
-  }
-
-  store.dispatch(checkTokenValidation())
-  
+    routesWithoutMainLoaderHandler(config)
     return config;
   },(error) => {
     return Promise.reject(error);

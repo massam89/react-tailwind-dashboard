@@ -61,14 +61,16 @@ export const checkTokenValidation = () => {
         const currentTime =  Date.now()
         const refToken = localStorage.getItem('refreshToken') 
         const expirationTime = +localStorage.getItem('expTime') || currentTime
-        
+
+        console.log((expirationTime - currentTime) / 3600)
+
         if(expirationTime < currentTime){
             refreshToken(refToken)
             .then(res => {
                 if(res.data.success){           
                     localStorage.setItem('jwtToken', res.data.content.jwtToken)
                     localStorage.setItem('refreshToken', res.data.content.refreshToken)
-                    localStorage.setItem('expTime', jwtDecode(localStorage.getItem('jwtToken')).exp * 1000)
+                    localStorage.setItem('expTime', jwtDecode(res.data.content.jwtToken).exp * 1000)
                 } else {
                     dispatch(logoutUserRequest())
                     toast.error('Token is not valid!')
