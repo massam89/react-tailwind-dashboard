@@ -22,7 +22,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
 
   const baseUrl = process.env.REACT_APP_API_URL;
   const localUrl = `${baseUrl}/${url}`
-  const token = localStorage.getItem('jwtToken')
+  const token = localStorage.getItem('access_token')
 
   switch(mode){
     case 'tokenJson':

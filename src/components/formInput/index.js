@@ -23,8 +23,11 @@ const FormInput = ((props) => {
       case 'username':
         inputIcon = userNameIcon('h-6 w-6')
         break
-      case 'fullname':
+      case 'name':
         inputIcon = userIcon('h-6 w-6')
+        break
+      case 'password_confirmation':
+        inputIcon = passwordIcon('h-6 w-6')
         break
       default:
         break

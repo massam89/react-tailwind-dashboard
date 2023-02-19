@@ -8,7 +8,8 @@ export const registerUserRequest = (data) => {
     return (dispatch) => {
         registerUser(data)
         .then(res => {
-            if(res.data.success){
+            console.log()
+            if(res.data.user){
                 dispatch(loginUserRequest(data))
             } else {
                 toast.error('Username is not unique')
@@ -22,15 +23,13 @@ export const loginUserRequest = (data) => {
     return (dispatch) => {
         loginUser(data)
         .then(res => {
-            if(res.data.success){
-
-                localStorage.setItem('id', res.data.content.id)
-                localStorage.setItem('jwtToken', res.data.content.jwtToken)
-                localStorage.setItem('username', res.data.content.username)
-                localStorage.setItem('refreshToken', res.data.content.refreshToken)
+            if(res.data.user){
+                localStorage.setItem('id', res.data.user.id)
+                localStorage.setItem('access_token', res.data.access_token)
+                localStorage.setItem('username', res.data.user.username)
                 localStorage.setItem('isAuth', true)
 
-                const expirationTime = jwtDecode(localStorage.getItem('jwtToken')).exp * 1000
+                const expirationTime = jwtDecode(localStorage.getItem('access_token')).exp * 1000
                 localStorage.setItem('expTime', expirationTime)
 
                 dispatch(authActions.login())
@@ -44,9 +43,9 @@ export const loginUserRequest = (data) => {
 
 export const logoutUserRequest = () => {
     return (dispatch) => {
-        revokeToken(localStorage.getItem('refreshToken'))
+        revokeToken(localStorage.getItem('access_token'))
         .then(res => {
-            if(res.data.success){
+            if(res.data){
                 localStorage.clear()
                 dispatch(uiActions.hideMenuDisplay())
                 dispatch(authActions.logout())  
@@ -58,19 +57,18 @@ export const logoutUserRequest = () => {
 
 export const checkTokenValidation = () => {
     return (dispatch) => {
+        const access_token = localStorage.getItem('access_token')
         const currentTime =  Date.now()
-        const refToken = localStorage.getItem('refreshToken') 
         const expirationTime = +localStorage.getItem('expTime') || currentTime
 
-        console.log((expirationTime - currentTime) / 3600)
+        console.log(expirationTime - currentTime) 
 
         if(expirationTime < currentTime){
-            refreshToken(refToken)
+            refreshToken(access_token)
             .then(res => {
-                if(res.data.success){           
-                    localStorage.setItem('jwtToken', res.data.content.jwtToken)
-                    localStorage.setItem('refreshToken', res.data.content.refreshToken)
-                    localStorage.setItem('expTime', jwtDecode(res.data.content.jwtToken).exp * 1000)
+                if(res.data){           
+                    localStorage.setItem('access_token', res.data.access_token)
+                    localStorage.setItem('expTime', jwtDecode(res.data.access_token).exp * 1000)
                 } else {
                     dispatch(logoutUserRequest())
                     toast.error('Token is not valid!')
