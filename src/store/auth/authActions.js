@@ -26,7 +26,7 @@ export const loginUserRequest = (data) => {
 
                 localStorage.setItem('id', res.data.content.id)
                 localStorage.setItem('jwtToken', res.data.content.jwtToken)
-                localStorage.setItem('username', res.data.content.userName)
+                localStorage.setItem('username', res.data.content.username)
                 localStorage.setItem('refreshToken', res.data.content.refreshToken)
                 localStorage.setItem('isAuth', true)
 

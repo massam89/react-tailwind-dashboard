@@ -17,7 +17,7 @@ const Login = () => {
     const passwordInputValue = e.target[1].value
     
     if(usernameInputValue && passwordInputValue){
-      dispatch(loginUserRequest({userName: usernameInputValue, password: passwordInputValue}))
+      dispatch(loginUserRequest({username: usernameInputValue, password: passwordInputValue}))
     }else{
       toast.error('Fill all inputs!')
     }

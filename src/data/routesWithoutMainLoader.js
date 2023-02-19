@@ -1,5 +1,5 @@
 const routesWithoutMainLoader = [
-    "/User/IsUserNameInUse"
+    "/auth/check-username"
 ];
 
 export default routesWithoutMainLoader

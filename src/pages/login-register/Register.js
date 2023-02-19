@@ -23,7 +23,7 @@ const Register = () => {
     if(!initialLoad && username){
       setIsLoadingCheckUsername(true)
       const timer = setTimeout(() => {
-        checkUniqueUser({userName : username})
+        checkUniqueUser({username : username})
         .then(res => {
           setIsLoadingCheckUsername(false)
           if(res.data === true){
@@ -56,7 +56,7 @@ const Register = () => {
     const passwordInputValue = e.target[1].value
 
     if(isUsernameValid && usernameInputValue && passwordInputValue){
-        dispatch(registerUserRequest({userName: usernameInputValue, password: passwordInputValue}))
+        dispatch(registerUserRequest({username: usernameInputValue, password: passwordInputValue}))
       } else {
         toast.error('Choose unique username and fill all inputs!')
       }
