@@ -8,14 +8,13 @@ export const registerUserRequest = (data) => {
     return (dispatch) => {
         registerUser(data)
         .then(res => {
-            console.log()
             if(res.data.user){
                 dispatch(loginUserRequest(data))
             } else {
                 toast.error('Username is not unique')
             }
         })
-        .catch(err => toast.error('Something wrong when try to register new username!'))
+        .catch(err => toast.error('Something wrong when trying to register new username!'))
     }
 }
 
@@ -33,7 +32,6 @@ export const loginUserRequest = (data) => {
                 localStorage.setItem('expTime', expirationTime)
 
                 dispatch(authActions.login())
-
             } else {
                 toast.error('something wrong to login after registeration!')
             }
@@ -44,7 +42,8 @@ export const loginUserRequest = (data) => {
 
 export const logoutUserRequest = () => {
     return (dispatch) => {
-        revokeToken(localStorage.getItem('access_token'))
+        const access_token = localStorage.getItem('access_token')
+        revokeToken(access_token)
         .then(res => {
             if(res.data){
                 localStorage.clear()
@@ -57,11 +56,10 @@ export const logoutUserRequest = () => {
 }
 
 export const checkTokenValidation = () => {
-    return (dispatch) => {
-        
+    return (dispatch) => {   
         const currentTime =  Date.now()
         const expirationTime = +localStorage.getItem('expTime') || currentTime
-        console.log(expirationTime - currentTime) 
+
         if(expirationTime < currentTime){
             localStorage.clear()
             dispatch(uiActions.hideMenuDisplay())

@@ -21,7 +21,6 @@ axios.interceptors.response.use((response) => {
   });
 
 export const ajax = async(mode, url, method, isBody, body) => {
-
   const baseUrl = process.env.REACT_APP_API_URL;
   const localUrl = `${baseUrl}/${url}`
   const token = localStorage.getItem('access_token')
@@ -39,7 +38,7 @@ export const ajax = async(mode, url, method, isBody, body) => {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': token ? `Bearer ${token}` : null
-              },  
+              }
           }).then(res => resolve (res))
             .catch(err => reject (err))
         })  

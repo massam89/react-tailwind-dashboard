@@ -3,7 +3,6 @@ import { starIcon } from "../../assets/icons"
 import heroImage from "../../assets/images/hero-pattern.png"
 
 const Hero = () => {
-
   const isLogin = useSelector(state => state.ui.loginMode)
 
   return (

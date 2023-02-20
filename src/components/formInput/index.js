@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { eyeIcon, openEyeIcon, passwordIcon, userNameIcon, userIcon } from "../../assets/icons";
 
 const FormInput = ((props) => {
-
+  
   const [isPasswordShown, setIsPasswordShown] = useState(false)
 
   const showPasswordHandler = () => setIsPasswordShown(prevState => !prevState)
