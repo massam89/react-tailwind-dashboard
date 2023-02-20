@@ -3,6 +3,7 @@ import { loginUser, registerUser, revokeToken, refreshToken } from "./_srv"
 import { authActions } from "./authSlice"
 import { uiActions } from "../ui/uiSlice"
 import jwtDecode from "jwt-decode"
+import Swal from "sweetalert2"
 
 export const registerUserRequest = (data) => {
     return (dispatch) => {
@@ -42,16 +43,27 @@ export const loginUserRequest = (data) => {
 
 export const logoutUserRequest = () => {
     return (dispatch) => {
-        const access_token = localStorage.getItem('access_token')
-        revokeToken(access_token)
-        .then(res => {
-            if(res.data){
-                localStorage.clear()
-                dispatch(uiActions.hideMenuDisplay())
-                dispatch(authActions.logout())  
-            } 
-        })
-        .catch(err => toast.error('Connection has problem for logging out!'))  
+        Swal.fire({
+            title: 'Are you sure to logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, do it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const access_token = localStorage.getItem('access_token')
+                revokeToken(access_token)
+                .then(res => {
+                    if(res.data){
+                        localStorage.clear()
+                        dispatch(uiActions.hideMenuDisplay())
+                        dispatch(authActions.logout())  
+                    } 
+                })
+                .catch(err => toast.error('Connection has problem for logging out!')) 
+            }
+          }) 
     }
 }
 
@@ -82,7 +94,7 @@ export const refreshAccessToken = () => {
             localStorage.clear()
             dispatch(uiActions.hideMenuDisplay())
             dispatch(authActions.logout())
-            toast.warn('Your token was expired!')
+            toast.warn('Your token was expired, please login!')
         })
 }
 }
