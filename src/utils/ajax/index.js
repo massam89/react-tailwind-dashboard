@@ -2,9 +2,11 @@ import store from "../../store";
 import { uiActions } from "../../store/ui/uiSlice";
 import axios from "axios";
 import routesWithoutMainLoaderHandler from "./routesWithoutMainLoaderHandler";
+import { checkTokenValidation } from "../../store/auth/authActions";
 
 axios.interceptors.request.use((config) => {
     routesWithoutMainLoaderHandler(config)
+    store.dispatch(checkTokenValidation())
     return config;
   },(error) => {
     return Promise.reject(error);

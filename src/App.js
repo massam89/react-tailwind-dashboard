@@ -7,14 +7,19 @@ import { menuItems } from "./data/menuItems";
 import { ToastContainer } from "react-toastify";
 import Loader from "./components/loader";
 import { useEffect } from "react";
-import { checkTokenValidation } from "./store/auth/authActions";
+import { checkTokenValidation, refreshAccessToken} from "./store/auth/authActions";
 
 function App() {
   const isAuth = useSelector(state => state.auth.isAuth)
   const isLoader = useSelector(state => state.ui.loader)
   const dispatch = useDispatch()
 
-  useEffect(() => dispatch(checkTokenValidation()), [dispatch])
+  useEffect(() => {
+    dispatch(checkTokenValidation())
+    setInterval(() => {
+      dispatch(refreshAccessToken())
+  }, 300000);
+  },[dispatch])
 
   const routesWithAuth = () => {
     return (

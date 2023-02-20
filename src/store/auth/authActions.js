@@ -33,6 +33,7 @@ export const loginUserRequest = (data) => {
                 localStorage.setItem('expTime', expirationTime)
 
                 dispatch(authActions.login())
+
             } else {
                 toast.error('something wrong to login after registeration!')
             }
@@ -57,27 +58,33 @@ export const logoutUserRequest = () => {
 
 export const checkTokenValidation = () => {
     return (dispatch) => {
-        const access_token = localStorage.getItem('access_token')
+        
         const currentTime =  Date.now()
         const expirationTime = +localStorage.getItem('expTime') || currentTime
-
         console.log(expirationTime - currentTime) 
-
         if(expirationTime < currentTime){
-            refreshToken(access_token)
-            .then(res => {
-                if(res.data){           
-                    localStorage.setItem('access_token', res.data.access_token)
-                    localStorage.setItem('expTime', jwtDecode(res.data.access_token).exp * 1000)
-                } else {
-                    dispatch(logoutUserRequest())
-                    toast.error('Token is not valid!')
-                }
-            })
-            .catch(err => {
-                toast.warn('you have to check connection or login again!')
-                dispatch(logoutUserRequest())
-            })
+            localStorage.clear()
+            dispatch(uiActions.hideMenuDisplay())
+            dispatch(authActions.logout())
+            toast.warn('Your token was expired!')
         }
     }
+}
+
+export const refreshAccessToken = () => {
+    return (dispatch) => {
+        const access_token = localStorage.getItem('access_token')
+        refreshToken(access_token)
+        .then(res => {       
+            localStorage.setItem('access_token', res.data.access_token)
+            localStorage.setItem('expTime', jwtDecode(res.data.access_token).exp * 1000)
+            toast.warn('Token has been updated!') 
+        })
+        .catch(err => {
+            localStorage.clear()
+            dispatch(uiActions.hideMenuDisplay())
+            dispatch(authActions.logout())
+            toast.warn('Your token was expired!')
+        })
+}
 }

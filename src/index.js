@@ -10,9 +10,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
     <Provider store={store}>
-      <React.StrictMode>
         <App />
-      </React.StrictMode>
     </Provider>
   </BrowserRouter>
 );
