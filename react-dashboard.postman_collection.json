@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "90d9c29a-c4b7-4b3a-97f0-a505dd702ed5",
+		"name": "react-dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\" : \"Masoud\",\r\n  \"username\" : \"masoud1\",\r\n  \"password\": \"123456789\",\r\n  \"password_confirmation\" : \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\" : \"masoud1\",\r\n  \"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JlYWN0LWRhc2hib2FyZC5tYXNvdWRzYW0uY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjc3MDYzMDQ2LCJleHAiOjE2NzcwNjY2NDYsIm5iZiI6MTY3NzA2MzA0NiwianRpIjoiejRGTFhqTkVvbVRlcTBlayIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.9c4_1W6f6mhXFHmcVeoTr5N4Q31H61UkYFpwyb_NKq8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/logout",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"masoud3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/check-username",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"check-username"
+					]
+				},
+				"description": "with this api we can check username is valid or invalid"
+			},
+			"response": []
+		},
+		{
+			"name": "get data user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JlYWN0LWRhc2hib2FyZC5tYXNvdWRzYW0uY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjc3MDYzMzQyLCJleHAiOjE2NzcwNjY5NDIsIm5iZiI6MTY3NzA2MzM0MiwianRpIjoiNGYzb3Q1SWJHNE9QdHhMeSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.J57qFO3Xd55yWXiZpw1RoNt5t8GCwYB2FlE_hUrzGzk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/user-profile",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"user-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JlYWN0LWRhc2hib2FyZC5tYXNvdWRzYW0uY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjc3MDYzNTg4LCJleHAiOjE2NzcwNjcxODgsIm5iZiI6MTY3NzA2MzU4OCwianRpIjoiNjg5YXNlejVPRkhJQ0g1QiIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WEF60tr_vsLVV7xcx7fNJkOrsQ2LLuUrpemsWSCF6Lk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/customer-data",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"customer-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JlYWN0LWRhc2hib2FyZC5tYXNvdWRzYW0uY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjc3MDYzNjkwLCJleHAiOjE2NzcwNjcyOTAsIm5iZiI6MTY3NzA2MzY5MCwianRpIjoiMVlvcXVWalRuYWFYczNXQSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.m4bxhRi2EtwAWXbBLEmj7tbgETKvwIOd3x86FpNY1TY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://react-dashboard.masoudsam.com/api/auth/refresh",
+					"protocol": "https",
+					"host": [
+						"react-dashboard",
+						"masoudsam",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
