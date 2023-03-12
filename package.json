@@ -20,13 +20,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f .env.development react-scripts start",
+    "start": "npm run architecture:madge && npm run architecture:cruiser && env-cmd -f .env.development react-scripts start",
     "build:dev": "env-cmd -f .env.development react-scripts build",
     "build:prod": "set \"GENERATE_SOURCEMAP=false\" && env-cmd -f .env.production react-scripts build && cp build/index.html build/404.html",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "architecture:madge": "madge --extensions js,ts,tsx --image ./dependency-graph/graph-with-madge.svg src/",
+    "architecture:cruiser": "depcruise --include-only \"^src\" --output-type dot src | dot -T svg > ./dependency-graph/graph-with-cruiser.svg"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +50,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "dependency-cruiser": "^12.10.0",
     "gh-pages": "^4.0.0",
+    "madge": "^6.0.0",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
   }
